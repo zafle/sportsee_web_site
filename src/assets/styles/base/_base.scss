@@ -1,0 +1,38 @@
+@use './typographie';
+@use '../abstract/variables' as *;
+
+/* ####### RESET ####### */
+* {
+    box-sizing: border-box;
+}
+p,
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    display: block;
+    margin: 0;
+}
+// button {
+//     background-color: transparent;
+//     border: none;
+//     cursor: pointer;
+// }
+
+// ######## GENERAL ##########
+body {
+    margin: 0;
+}
+
+// ######## TYPOGRAPHIE ##########
+#root {
+    font-family: $base-font;
+    // font-weight: $medium-weight;
+}
