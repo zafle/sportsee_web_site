@@ -10,9 +10,9 @@ function Header() {
             </Link>
             <nav className="main-header__navigation">
                 <NavLink to="/">Accueil</NavLink>
-                <NavLink to="/profil/:id">Profil</NavLink>
-                <NavLink to="/settings/:id">Réglage</NavLink>
-                <NavLink to="/community/:id">Communauté</NavLink>
+                <NavLink to="/profile">Profil</NavLink>
+                <NavLink to="/settings">Réglage</NavLink>
+                <NavLink to="/community">Communauté</NavLink>
             </nav>
         </header>
     )

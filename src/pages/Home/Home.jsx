@@ -1,4 +1,10 @@
+// import { useAccount } from '../../hooks/useAccount'
+import AuthentificationForm from '../../components/Authentification/AuthentificationForm'
+
 function Home() {
-    return <div>Vous êtes sur la page accueil</div>
+    // const { isLogged } = useAccount()
+    // return isLogged ? <div>Vous êtes connecté</div> : <AuthentificationForm />
+
+    return <AuthentificationForm />
 }
 export default Home
