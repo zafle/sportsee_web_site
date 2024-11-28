@@ -1,10 +1,10 @@
 import { useAccount } from '../../hooks/useAccount'
-import { useData } from '../../hooks/useData'
+import { useDataOrigin } from '../../hooks/useDataOrigin'
 import { useNavigate } from 'react-router-dom'
 
 function AuthentificationForm() {
     const { defineUserId } = useAccount()
-    const { defineDataOrigin } = useData()
+    const { defineIsMock } = useDataOrigin()
 
     const navigate = useNavigate()
 
@@ -15,7 +15,7 @@ function AuthentificationForm() {
         const dataOrigin = formData.get('data-origin')
 
         defineUserId(userId)
-        defineDataOrigin(dataOrigin)
+        defineIsMock(dataOrigin === 'mock' ? true : false)
 
         navigate(`/profile`, { replace: true })
     }
