@@ -4,6 +4,7 @@ import AuthentificationForm from '../../components/Authentification/Authentifica
 function Home() {
     // const { isLogged } = useAccount()
     // return isLogged ? <div>Vous êtes connecté</div> : <AuthentificationForm />
+    console.log('test home')
 
     return <AuthentificationForm />
 }

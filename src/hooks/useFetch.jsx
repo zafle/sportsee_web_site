@@ -1,6 +1,7 @@
 import { useDataOrigin } from './useDataOrigin'
 import { useAccount } from './useAccount'
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import PropTypes from 'prop-types'
 
 export function useFetch(query) {
@@ -18,21 +19,20 @@ export function useFetch(query) {
     const [error, setError] = useState(false)
 
     useEffect(() => {
-        if (!request) return
         setLoading(true)
-        async function fetchData() {
+
+        async function getData() {
             try {
-                const response = await fetch(request)
-                const data = await response.json()
-                setData(data.data)
-            } catch (err) {
-                console.log('+++++ error ++++', err)
+                const response = await axios.get(request)
+                setData(response.data.data)
+            } catch (error) {
+                console.error(error)
                 setError(true)
             } finally {
                 setLoading(false)
             }
         }
-        fetchData()
+        getData()
     }, [request])
     return { isLoading, data, error }
 }

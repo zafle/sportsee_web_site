@@ -1,8 +1,14 @@
-import { useFetch } from '../../hooks/useFetch'
+import { useAccount } from '../../hooks/useAccount'
+// import { useDataOrigin } from '../../hooks/useDataOrigin'
+import { useGetUserInfos } from '../../services/useCallFactory'
 
 function Profile() {
-    const { isLoading, data, error } = useFetch('user')
-    const userInfos = data ? data.userInfos : null
+    const { userId } = useAccount()
+    // const {isMock} = useDataOrigin()
+    const { isLoading, data, error } = useGetUserInfos(userId)
+    const userInfos = data ? data : null
+
+    userInfos && console.log('userInfos from profile', userInfos)
 
     if (error) {
         return (
@@ -13,15 +19,10 @@ function Profile() {
         )
     }
 
-    if (!isLoading) {
-        console.log(userInfos)
-        console.log(userInfos.firstName)
-    }
-
     return isLoading ? (
-        <div>Loading...</div>
+        <div>chargement...</div>
     ) : (
-        <div>{`Bonjour ${userInfos.firstName}`}</div>
+        userInfos && <div>Bonjour {userInfos.firstName}</div>
     )
 }
 export default Profile
