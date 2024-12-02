@@ -1,30 +1,15 @@
-import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useFetch } from './useFetch'
 
-export function useApi(url) {
-    const [data, setData] = useState()
-    const [isLoading, setLoading] = useState(true)
-    const [error, setError] = useState(false)
+const BASE_URL = 'http://localhost:3000'
 
-    useEffect(() => {
-        function getData() {
-            setLoading(true)
+export function useApiUserInfos(userId, isMock) {
+    const url = `${BASE_URL}/user/${userId}`
+    const { isLoading, data, error } = useFetch(url, isMock)
+    const userInfos = data ? data.userInfos : null
+    return { isLoading, data: userInfos, error }
+}
 
-            axios
-                .get(url)
-                .then((response) => {
-                    setData(response.data.data)
-                })
-                .catch((error) => {
-                    console.log(error)
-                    setError(true)
-                })
-                .finally(() => {
-                    setLoading(false)
-                })
-        }
-        getData()
-    }, [url])
-
-    return { isLoading, data, error }
+export function getUserActivity(userId) {
+    return axios.get(`http://localhost:3000/user/${userId}/activity`)
 }
