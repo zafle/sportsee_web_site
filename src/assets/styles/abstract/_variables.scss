@@ -15,3 +15,7 @@ $base-font: 'Roboto', sans-serif;
 // weight
 $medium-weight: 400;
 $bold-weight: 500;
+
+// ######## RESPONSIVE BREAKPOINTS ##########
+$xl-screen: 'only screen and (min-width: 1024px)';
+$xxl-screen: 'only screen and (min-width: 1340px)';

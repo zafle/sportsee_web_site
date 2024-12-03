@@ -1,0 +1,9 @@
+@use '../../../../assets/styles/abstract/variables' as *;
+@use '../../../../assets/styles/abstract/functions' as *;
+
+.sidebar__content--profile {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    margin-bottom: rem(164);
+}

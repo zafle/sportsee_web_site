@@ -1,3 +1,4 @@
+import { BounceLoader } from 'react-spinners'
 import { useAccount } from '../../hooks/useAccount'
 import { useGetUserInfos } from '../../services/useDataFactory'
 
@@ -16,8 +17,12 @@ export function ProfileHeader() {
     }
 
     return isLoading ? (
-        <div>chargement...</div>
+        <BounceLoader />
     ) : (
-        <div>Bonjour {userInfos?.firstName}</div>
+        <header className={'profile-header'}>
+            <span>Bonjour </span>
+            <span>{userInfos?.firstName}</span>
+            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+        </header>
     )
 }

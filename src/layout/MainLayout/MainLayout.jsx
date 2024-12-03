@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import Header from '../Header/Header'
-// import Footer from '../Footer/footer.jsx'
-import './_mainlayout.scss'
+import Sidebar from '../Sidebar/Sidebar'
+import './_Mainlayout.scss'
 
 /**
  * Main App layout component
@@ -12,8 +12,8 @@ function MainLayout({ children }) {
     return (
         <div className="page-container">
             <Header />
+            <Sidebar />
             <main>{children}</main>
-            {/* <Footer /> */}
         </div>
     )
 }

@@ -1,0 +1,22 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.sidebar {
+    float: left;
+    width: rem(117);
+    min-height: calc(100vh - rem(91));
+    background: $secondary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    padding-top: rem(60);
+    padding-bottom: rem(60);
+
+    &__copyright {
+        color: white;
+        font-size: rem(12);
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+    }
+}
