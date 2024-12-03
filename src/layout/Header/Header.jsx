@@ -2,6 +2,10 @@ import logo from '../../assets/images/logo.png'
 import { Link, NavLink } from 'react-router-dom'
 import './_header.scss'
 
+/**
+ * Main App Header Component
+ * @returns Header
+ */
 function Header() {
     return (
         <header className="main-header">

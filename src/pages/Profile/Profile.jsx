@@ -1,6 +1,10 @@
 import { useAccount } from '../../hooks/useAccount'
 import { useGetUserInfos } from '../../services/useDataFactory'
 
+/**
+ * Component to display Profil Page content
+ * @returns {JSX.Element}
+ */
 function Profile() {
     const { userId } = useAccount()
     const { isLoading, data, error } = useGetUserInfos(userId)

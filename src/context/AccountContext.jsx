@@ -1,10 +1,8 @@
 import { createContext } from 'react'
-
+/**
+ * Create a context for user id
+ */
 export const AccountContext = createContext({
-    isLogged: false,
-    firstName: undefined,
     userId: undefined,
-    toggleIsLogged: () => {},
-    defineFirstName: () => {},
     defineUserId: () => {},
 })

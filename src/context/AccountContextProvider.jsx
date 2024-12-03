@@ -2,29 +2,32 @@ import { useState } from 'react'
 import { AccountContext } from './AccountContext'
 import PropTypes from 'prop-types'
 
+/**
+ * Provides the context to retrieve user id
+ * @param {{ children: JSX.Element}} chidren
+ * @returns account context provider
+ */
 export function AccountContextProvider({ children }) {
-    const [isLogged, setIsLogged] = useState(false)
-    const [firstName, setFirstName] = useState(undefined)
-    const [userId, setUserId] = useState(undefined)
+    const [userId, setUserId] = useState(() => {
+        // getting stored value if exists and set it up as initial value
+        const storedId = localStorage.getItem('userId')
+        const initialValue = JSON.parse(storedId)
+        return initialValue || ''
+    })
 
-    const toggleIsLogged = () => {
-        setIsLogged(!isLogged)
-    }
-    const defineFirstName = (name) => {
-        setFirstName(name)
-    }
+    /**
+     * Save user id in context and in localstorage
+     * @param {string} id user id
+     */
     const defineUserId = (id) => {
         setUserId(id)
+        localStorage.setItem('userId', JSON.stringify(id))
     }
 
     return (
         <AccountContext.Provider
             value={{
-                isLogged,
-                firstName,
                 userId,
-                toggleIsLogged,
-                defineFirstName,
                 defineUserId,
             }}
         >
