@@ -1,0 +1,10 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.chart_title {
+    position: absolute;
+    top: rem(30);
+    left: rem(32);
+    font-size: rem(15);
+    z-index: 1;
+}

@@ -1,4 +1,5 @@
 import { USER_MAIN_DATA } from '../assets/data/data'
+import { USER_ACTIVITY } from '../assets/data/data'
 import PropTypes from 'prop-types'
 
 /**
@@ -32,6 +33,24 @@ export function useMockUserInfos(userId, isMock) {
 }
 
 useMockUserInfos.propTypes = {
+    userId: PropTypes.number.isRequired,
+    isMock: PropTypes.bool.isRequired,
+}
+
+export function useMockDailyActivity(userId, isMock) {
+    if (!isMock) {
+        return
+    }
+    const user = USER_ACTIVITY.find((user) => user.userId === parseInt(userId))
+    const dailyActivity = user.sessions
+    return {
+        isLoading: false,
+        data: dailyActivity,
+        error: false,
+    }
+}
+
+useMockDailyActivity.propTypes = {
     userId: PropTypes.number.isRequired,
     isMock: PropTypes.bool.isRequired,
 }

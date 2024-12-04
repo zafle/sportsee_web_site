@@ -26,6 +26,13 @@ export function useApiUserInfos(userId, isMock) {
     return { isLoading, data: userInfos, error }
 }
 
+export function useApiDailyActivity(userId, isMock) {
+    const url = `${BASE_URL}/user/${userId}/activity`
+    const { isLoading, data, error } = useFetch(url, isMock)
+    const dailyActivity = data ? data.sessions : null
+    return { isLoading, data: dailyActivity, error }
+}
+
 useApiUserInfos.propTypes = {
     userId: PropTypes.number.isRequired,
     isMock: PropTypes.bool.isRequired,

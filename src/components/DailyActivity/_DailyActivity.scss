@@ -1,0 +1,29 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.daily-activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(835);
+    height: rem(320);
+    margin-top: rem(78);
+
+    &__chart {
+        position: relative;
+    }
+    &__barchart {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $background-grey;
+        border-radius: rem(5);
+
+        &--legend {
+            color: $dark-grey;
+            font-size: rem(14);
+            margin-left: rem(10);
+            margin-right: rem(30);
+        }
+    }
+}

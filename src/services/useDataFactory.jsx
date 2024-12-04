@@ -1,6 +1,6 @@
 import { useDataOrigin } from '../hooks/useDataOrigin'
-import { useApiUserInfos } from './useApi'
-import { useMockUserInfos } from './useMock'
+import { useApiDailyActivity, useApiUserInfos } from './useApi'
+import { useMockDailyActivity, useMockUserInfos } from './useMock'
 import PropTypes from 'prop-types'
 
 /**
@@ -24,6 +24,19 @@ export function useGetUserInfos(userId) {
     return isMock ? mockData : apiData
 }
 
-useApiUserInfos.propTypes = {
+useGetUserInfos.propTypes = {
     userId: PropTypes.number.isRequired,
+    isMock: PropTypes.bool.isRequired,
+}
+
+export function useGetDailyActivity(userId) {
+    const { isMock } = useDataOrigin()
+    const apiData = useApiDailyActivity(userId, isMock)
+    const mockData = useMockDailyActivity(userId, isMock)
+    return isMock ? mockData : apiData
+}
+
+useGetUserInfos.propTypes = {
+    userId: PropTypes.number.isRequired,
+    isMock: PropTypes.bool.isRequired,
 }
