@@ -1,0 +1,14 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.profile-header {
+    font-size: rem(48);
+    &__name {
+        color: $primary-color;
+    }
+    &__text {
+        font-size: rem(18);
+        font-weight: $regular-weight;
+        margin-top: rem(40);
+    }
+}

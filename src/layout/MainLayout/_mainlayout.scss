@@ -1,3 +1,10 @@
-// .page-container {
-//     min-height: 100vh;
-// }
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+main {
+    padding: rem(34) rem(45) rem(43) rem(107 + 60);
+
+    @media #{$xxl-screen} {
+        padding: rem(68) rem(90) rem(86) rem(107 + 117);
+    }
+}
