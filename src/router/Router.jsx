@@ -6,6 +6,11 @@ import Settings from '../pages/Settings/Settings'
 import Community from '../pages/Community/Community'
 import Error404 from '../pages/Error404/Error404'
 
+/**
+ * Application Router
+ *
+ * @returns {React.ReactElement} React Component Router
+ */
 function Router() {
     return (
         <BrowserRouter>

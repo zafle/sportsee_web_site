@@ -3,13 +3,13 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 
 /**
- * Hook to fetch data from API
- * @param {String} url URL to use to fetch datas
- * @param {Boolean} isMock
+ * Custom hook to fetch data from API using Axios
+ * @param {string} url - URL to use to fetch data
+ * @param {boolean} isMock - Whether to use mock data.
  * @returns {{
- *   isLoading: Boolean,
+ *   isLoading: boolean,
  *   data: Object,
- *   error: Boolean
+ *   error: boolean
  * }} An object containing the loading state, fetched data, and error state.
  */
 export function useFetch(url, isMock) {

@@ -3,8 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import './_header.scss'
 
 /**
- * Main App Header Component
- * @returns Header
+ * Main App Header Component tha contains app logo and navigation menu
+ * @returns {React.ReactElement} Header
  */
 function Header() {
     return (

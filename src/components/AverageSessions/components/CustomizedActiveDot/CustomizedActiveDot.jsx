@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types'
 
-function CustomizedActiveDot(props) {
-    const { cx, cy } = props
+/**
+ * Renders the dot to display on Average Sessions Chart when hover (active dot)
+ * This component is used in the Recharts 'Line' component of LineChart Average Sessions Chart.
+ * @param {Object} props - The component props.
+ * @param {number} props.cx x dot coordinates
+ * @param {number} props.cy y dot coordinates
+ * @returns {React.ReactElement}
+ */
 
+function CustomizedActiveDot({ cx, cy }) {
     return (
         <svg
             x={cx - 9}

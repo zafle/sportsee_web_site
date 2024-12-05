@@ -4,9 +4,10 @@ import Sidebar from '../Sidebar/Sidebar'
 import './_Mainlayout.scss'
 
 /**
- * Main App layout component
- * @param {{ children: JSX.Element}} children
- * @returns {JSX.Element}
+ * Renders main App layout React component with main Header and main Sidebar
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - React components that will display inside the layout.
+ * @returns {React.ReactElement} A React component to display mainlayout
  */
 function MainLayout({ children }) {
     return (

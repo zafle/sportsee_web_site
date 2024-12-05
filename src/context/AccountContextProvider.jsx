@@ -3,21 +3,22 @@ import { AccountContext } from './AccountContext'
 import PropTypes from 'prop-types'
 
 /**
- * Provides the context to retrieve user id
- * @param {{ children: JSX.Element}} chidren
- * @returns account context provider
+ * Context provider for managing and sharing the user account ID.
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - React components that will have access to the context.
+ * @returns {React.ReactElement} A provider component that supplies the `AccountContext` value to its children.
  */
 export function AccountContextProvider({ children }) {
     const [userId, setUserId] = useState(() => {
-        // getting stored value if exists and set it up as initial value
+        // Retrieve the stored user ID from localStorage, if available, and set it as the initial state.
         const storedId = localStorage.getItem('userId')
         const initialValue = JSON.parse(storedId)
         return initialValue || ''
     })
 
     /**
-     * Save user id in context and in localstorage
-     * @param {string} id user id
+     *  Updates the userId in the context and saves it to localStorage.
+     * @param {number} id - The new user ID to store and set
      */
     const defineUserId = (id) => {
         setUserId(id)

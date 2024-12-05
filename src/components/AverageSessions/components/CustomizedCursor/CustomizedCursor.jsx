@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types'
 
-function CustomizedCursor(props) {
-    const { points } = props
+/**
+ * Renders the cursor to display on Average Sessions Chart when hover
+ * This component is used in the Recharts 'Tooltip' component
+ * @param {Object} props - The component props.
+ * @param {array : [{x, y}, {x, y}]} props.points first object contains the start point (x, y) of the cursor stroke, second object the end point
+ * @returns {React.ReactElement} A transparent black rectangle that displays on the right side of the hovered active point.
+ */
+function CustomizedCursor({ points }) {
     const startX = points[0].x
 
     return (

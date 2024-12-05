@@ -1,9 +1,9 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 /**
- * Check if provided user id from authentification form is in the data base
- * @param {Number} userId user id from authentification form
- * @returns {Boolean} userExists
+ * Check if provided user id from home page authentification form is in the data base
+ * @param {number} userId user id from authentification form
+ * @returns {boolean} userExists
  */
 export function checkUser(userId) {
     const USERS = [12, 18]

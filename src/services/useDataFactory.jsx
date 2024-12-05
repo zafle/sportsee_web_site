@@ -12,12 +12,8 @@ import {
 // import PropTypes from 'prop-types'
 
 /**
- * Factory Patterns to return data either from API or mock based on Data origin context
- */
-
-/**
- * Hook to return user infos
- * @param {Number} userId
+ * Custom hook factory pattern to return user infos data either from API or mock based on Data origin context
+ * @param {number} userId - The ID of the user to fetch data for.
  * @returns {{
  *   isLoading: boolean,
  *   data: {userInfos: {firstName: string, lastName: string, age: number}},
@@ -25,6 +21,7 @@ import {
  * }} An object containing the loading state, fetched data, and error state.
  *
  */
+
 export function useGetUserInfos(userId) {
     const { isMock } = useDataOrigin()
     const apiData = useApiUserInfos(userId, isMock)
@@ -32,11 +29,16 @@ export function useGetUserInfos(userId) {
     return isMock ? mockData : apiData
 }
 
-// useGetUserInfos.propTypes = {
-//     userId: PropTypes.number.isRequired,
-//     isMock: PropTypes.bool.isRequired,
-// }
-
+/**
+ * Custom hook factory pattern to return daily activity user data either from API or mock based on Data origin context
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Array<{ day: string, kilogram: number, calories: number }>
+ *   error: boolean
+ * }} - An object containing the loading state, fetched daily activity data, and error state.
+ */
 export function useGetDailyActivity(userId) {
     const { isMock } = useDataOrigin()
     const apiData = useApiDailyActivity(userId, isMock)
@@ -44,12 +46,27 @@ export function useGetDailyActivity(userId) {
     return isMock ? mockData : apiData
 }
 
+/**
+ * Custom hook factory pattern to return average session user data either from API or mock based on Data origin context
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Array<{ day: number, sessionLength: number }>
+ *   error: boolean
+ * }} - An object containing the loading state, fetched average session data, and error state.
+ */
 export function useGetAveragesSessions(userId) {
     const { isMock } = useDataOrigin()
     const apiData = useApiAverageSessions(userId, isMock)
     const mockData = useMockAverageSessions(userId, isMock)
     return isMock ? mockData : apiData
 }
+
+// useGetUserInfos.propTypes = {
+//     userId: PropTypes.number.isRequired,
+//     isMock: PropTypes.bool.isRequired,
+// }
 
 // useGetUserInfos.propTypes = {
 //     userId: PropTypes.number.isRequired,

@@ -3,21 +3,23 @@ import { DataOriginContext } from './DataOriginContext'
 import PropTypes from 'prop-types'
 
 /**
- * Provides the context to retrieve data source origin (API or mock)
- * @param {{ children: JSX.Element}} chidren
- * @returns data origin context provider
+ * Context provider for managing and sharing the data source service.
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - React components that will have access to the context.
+ * @returns {React.ReactElement} A provider component that supplies the DataOriginContext value to its children.
  */
+
 export function DataOriginContextProvider({ children }) {
     const [isMock, setIsMock] = useState(() => {
-        // getting stored value if exists and set it up as initial value
+        // Retrieve the stored isMock value from localStorage, if available, and set it as the initial state.
         const storedIsMock = localStorage.getItem('isMock')
         const initialValue = JSON.parse(storedIsMock)
         return initialValue || ''
     })
 
     /**
-     * Save data origin in context and in localstorage
-     * @param {string} id user id
+     * Updates isMock in the context and saves it to localStorage.
+     * @param {boolean} value - The new isMock value to store and set
      */
     const defineIsMock = (value) => {
         setIsMock(value)

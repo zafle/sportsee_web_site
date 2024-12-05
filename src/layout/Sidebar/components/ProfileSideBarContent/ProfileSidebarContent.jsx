@@ -5,6 +5,11 @@ import IconBike from '../../../../assets/images/icon-bike.svg'
 import IconWeight from '../../../../assets/images/icon-weight.svg'
 import './_ProfileSidebarContent.scss'
 
+/**
+ * Renders React component for Sidebar content on Profile Page
+ * Contains a menu to display differents page contents
+ * @returns {React.ReactElement}
+ */
 function ProfileSidebarContent() {
     return (
         <div className="sidebar__content--profile">

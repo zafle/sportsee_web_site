@@ -3,6 +3,10 @@ import { useAccount } from '../../hooks/useAccount'
 import { useGetUserInfos } from '../../services/useDataFactory'
 import './_ProfileHeader.scss'
 
+/**
+ * Renders the Header for Profile main content page
+ * @returns {React.ReactElement}
+ */
 export function ProfileHeader() {
     const { userId } = useAccount()
     const { isLoading, data, error } = useGetUserInfos(userId)

@@ -2,6 +2,11 @@ import { useLocation } from 'react-router-dom'
 import ProfileSidebarContent from './components/ProfileSideBarContent/ProfileSidebarContent'
 import './_Sidebar.scss'
 
+/**
+ * Renders the main App Sidebar displayed on all pages
+ * The sidebar content will change based upon the url of the it is displayed on.
+ * @returns {React.ReactElement} Sidebar
+ */
 function Sidebar() {
     const location = useLocation()
 

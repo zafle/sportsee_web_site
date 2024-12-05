@@ -1,23 +1,19 @@
-import { useFetch } from './useFetch'
 // import PropTypes from 'prop-types'
-
-/**
- * Hooks to define endpoints and use useFetch hook to fetch and return datas from API
- */
+import { useFetch } from './useFetch'
 
 // define API URL
 const BASE_URL = 'http://localhost:3000'
 
 /**
- * Hook to return user infos from API
- * @param {Number} userId
- * @param {Boolean} isMock
+ * Custom hook to fetch and return user information data from the API.
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @param {boolean} isMock - Whether to use mock data.
  * @returns {{
  *   isLoading: boolean,
- *   data: {userInfos: {firstName: string, lastName: string, age: number}},
+ *   data: { userInfos: { firstName: string, lastName: string, age: number } } | null,
  *   error: boolean
- * }} An object containing the loading state, fetched data, and error state.
- *
+ * }} - An object containing the loading state, fetched user information, and error state.
  */
 export function useApiUserInfos(userId, isMock) {
     const url = `${BASE_URL}/user/${userId}`
@@ -26,6 +22,17 @@ export function useApiUserInfos(userId, isMock) {
     return { isLoading, data: userInfos, error }
 }
 
+/**
+ * Custom hook to fetch and return daily activity data from the API.
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @param {boolean} isMock - Whether to use mock data.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Array<{ day: string, kilogram: number, calories: number }> | null,
+ *   error: boolean
+ * }} - An object containing the loading state, fetched daily activity data, and error state.
+ */
 export function useApiDailyActivity(userId, isMock) {
     const url = `${BASE_URL}/user/${userId}/activity`
     const { isLoading, data, error } = useFetch(url, isMock)
@@ -33,6 +40,17 @@ export function useApiDailyActivity(userId, isMock) {
     return { isLoading, data: dailyActivity, error }
 }
 
+/**
+ * Custom hook to fetch and return average session data from the API.
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @param {boolean} isMock - Whether to use mock data.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Array<{ day: number, sessionLength: number }> | null,
+ *   error: boolean
+ * }} - An object containing the loading state, fetched average session data, and error state.
+ */
 export function useApiAverageSessions(userId, isMock) {
     const url = `${BASE_URL}/user/${userId}/average-sessions`
     const { isLoading, data, error } = useFetch(url, isMock)

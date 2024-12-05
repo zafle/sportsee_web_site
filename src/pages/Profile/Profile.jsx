@@ -3,8 +3,9 @@ import DailyActivity from '../../components/DailyActivity/DailyActivity'
 import AverageSessions from '../../components/AverageSessions/AverageSessions'
 
 /**
- * Component to display Profil Page content
- * @returns {JSX.Element}
+ * Renders a React Component to display Profil Page content :
+ * - Page's Header, Daily Activity Chart, Average sessions Chart,
+ * @returns {React.ReactElement} Profile page
  */
 function Profile() {
     return (
