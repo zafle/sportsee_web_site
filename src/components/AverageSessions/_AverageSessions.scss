@@ -1,0 +1,40 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.average-sessions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(258);
+    height: rem(263);
+    // margin-top: rem(78);
+
+    &__chart {
+        position: relative;
+    }
+    &__linechart {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $primary-color;
+        border-radius: rem(5);
+    }
+    &__days {
+        position: absolute;
+        bottom: 24px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        letter-spacing: 29px;
+        text-indent: 13px;
+        font-size: rem(12);
+        color: white;
+        opacity: 0.6;
+    }
+}
+.chart_title--average-sessions {
+    color: white;
+    opacity: 0.6;
+    width: 60%;
+    line-height: 24px;
+}

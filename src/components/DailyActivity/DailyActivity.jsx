@@ -7,7 +7,7 @@ import {
     XAxis,
     YAxis,
 } from 'recharts'
-import CustomTooltip from '../CustomToolTip/CustomToolTip'
+import CustomTooltip from './components/CustomTooltip/CustomTooltip'
 import { useAccount } from '../../hooks/useAccount'
 import { useGetDailyActivity } from '../../services/useDataFactory'
 import ChartTitle from '../ChartTitle/ChartTitle'

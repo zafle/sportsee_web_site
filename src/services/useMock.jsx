@@ -1,6 +1,7 @@
 import { USER_MAIN_DATA } from '../assets/data/data'
 import { USER_ACTIVITY } from '../assets/data/data'
-import PropTypes from 'prop-types'
+import { USER_AVERAGE_SESSIONS } from '../assets/data/data'
+// import PropTypes from 'prop-types'
 
 /**
  * Hooks to return datas from mock
@@ -21,10 +22,8 @@ export function useMockUserInfos(userId, isMock) {
     if (!isMock) {
         return
     }
-
     const user = USER_MAIN_DATA.find((user) => user.id === parseInt(userId))
     const userInfos = user.userInfos
-
     return {
         isLoading: false,
         data: userInfos,
@@ -32,10 +31,10 @@ export function useMockUserInfos(userId, isMock) {
     }
 }
 
-useMockUserInfos.propTypes = {
-    userId: PropTypes.number.isRequired,
-    isMock: PropTypes.bool.isRequired,
-}
+// useMockUserInfos.propTypes = {
+//     userId: PropTypes.number.isRequired,
+//     isMock: PropTypes.bool.isRequired,
+// }
 
 export function useMockDailyActivity(userId, isMock) {
     if (!isMock) {
@@ -49,8 +48,22 @@ export function useMockDailyActivity(userId, isMock) {
         error: false,
     }
 }
+//     (useMockDailyActivity.propTypes = {
+//         userId: PropTypes.number.isRequired,
+//         isMock: PropTypes.bool.isRequired,
+//     })
 
-useMockDailyActivity.propTypes = {
-    userId: PropTypes.number.isRequired,
-    isMock: PropTypes.bool.isRequired,
+export function useMockAverageSessions(userId, isMock) {
+    if (!isMock) {
+        return
+    }
+    const user = USER_AVERAGE_SESSIONS.find(
+        (user) => user.userId === parseInt(userId)
+    )
+    const averageSessions = user.sessions
+    return {
+        isLoading: false,
+        data: averageSessions,
+        error: false,
+    }
 }

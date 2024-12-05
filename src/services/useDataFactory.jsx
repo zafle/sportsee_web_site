@@ -1,7 +1,15 @@
 import { useDataOrigin } from '../hooks/useDataOrigin'
-import { useApiDailyActivity, useApiUserInfos } from './useApi'
-import { useMockDailyActivity, useMockUserInfos } from './useMock'
-import PropTypes from 'prop-types'
+import {
+    useApiAverageSessions,
+    useApiDailyActivity,
+    useApiUserInfos,
+} from './useApi'
+import {
+    useMockAverageSessions,
+    useMockDailyActivity,
+    useMockUserInfos,
+} from './useMock'
+// import PropTypes from 'prop-types'
 
 /**
  * Factory Patterns to return data either from API or mock based on Data origin context
@@ -24,10 +32,10 @@ export function useGetUserInfos(userId) {
     return isMock ? mockData : apiData
 }
 
-useGetUserInfos.propTypes = {
-    userId: PropTypes.number.isRequired,
-    isMock: PropTypes.bool.isRequired,
-}
+// useGetUserInfos.propTypes = {
+//     userId: PropTypes.number.isRequired,
+//     isMock: PropTypes.bool.isRequired,
+// }
 
 export function useGetDailyActivity(userId) {
     const { isMock } = useDataOrigin()
@@ -36,7 +44,14 @@ export function useGetDailyActivity(userId) {
     return isMock ? mockData : apiData
 }
 
-useGetUserInfos.propTypes = {
-    userId: PropTypes.number.isRequired,
-    isMock: PropTypes.bool.isRequired,
+export function useGetAveragesSessions(userId) {
+    const { isMock } = useDataOrigin()
+    const apiData = useApiAverageSessions(userId, isMock)
+    const mockData = useMockAverageSessions(userId, isMock)
+    return isMock ? mockData : apiData
 }
+
+// useGetUserInfos.propTypes = {
+//     userId: PropTypes.number.isRequired,
+//     isMock: PropTypes.bool.isRequired,
+// }

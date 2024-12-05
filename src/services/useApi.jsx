@@ -1,5 +1,5 @@
 import { useFetch } from './useFetch'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 /**
  * Hooks to define endpoints and use useFetch hook to fetch and return datas from API
@@ -33,7 +33,14 @@ export function useApiDailyActivity(userId, isMock) {
     return { isLoading, data: dailyActivity, error }
 }
 
-useApiUserInfos.propTypes = {
-    userId: PropTypes.number.isRequired,
-    isMock: PropTypes.bool.isRequired,
+export function useApiAverageSessions(userId, isMock) {
+    const url = `${BASE_URL}/user/${userId}/average-sessions`
+    const { isLoading, data, error } = useFetch(url, isMock)
+    const averageSessions = data ? data.sessions : null
+    return { isLoading, data: averageSessions, error }
 }
+
+// useApiUserInfos.propTypes = {
+//     userId: PropTypes.number.isRequired,
+//     isMock: PropTypes.bool.isRequired,
+// }
