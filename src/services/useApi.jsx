@@ -23,7 +23,7 @@ export function useApiUserInfos(userId, isMock) {
 }
 
 /**
- * Custom hook to fetch and return daily activity data from the API.
+ * Custom hook to fetch and return user daily activity data from the API.
  *
  * @param {number} userId - The ID of the user to fetch data for.
  * @param {boolean} isMock - Whether to use mock data.
@@ -41,7 +41,7 @@ export function useApiDailyActivity(userId, isMock) {
 }
 
 /**
- * Custom hook to fetch and return average session data from the API.
+ * Custom hook to fetch and return user average session data from the API.
  *
  * @param {number} userId - The ID of the user to fetch data for.
  * @param {boolean} isMock - Whether to use mock data.
@@ -56,6 +56,24 @@ export function useApiAverageSessions(userId, isMock) {
     const { isLoading, data, error } = useFetch(url, isMock)
     const averageSessions = data ? data.sessions : null
     return { isLoading, data: averageSessions, error }
+}
+
+/**
+ * Custom hook to fetch and return user performance data from the API.
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @param {boolean} isMock - Whether to use mock data.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Object | null,
+ *   error: boolean
+ * }} - An object containing the loading state, fetched performance data, and error state.
+ */
+export function useApiPerformance(userId, isMock) {
+    const url = `${BASE_URL}/user/${userId}/performance`
+    const { isLoading, data, error } = useFetch(url, isMock)
+    const performance = data ? data : null
+    return { isLoading, data: performance, error }
 }
 
 // useApiUserInfos.propTypes = {

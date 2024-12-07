@@ -1,4 +1,4 @@
-import { USER_MAIN_DATA } from '../assets/data/data'
+import { USER_MAIN_DATA, USER_PERFORMANCE } from '../assets/data/data'
 import { USER_ACTIVITY } from '../assets/data/data'
 import { USER_AVERAGE_SESSIONS } from '../assets/data/data'
 // import PropTypes from 'prop-types'
@@ -83,6 +83,31 @@ export function useMockAverageSessions(userId, isMock) {
     return {
         isLoading: false,
         data: averageSessions,
+        error: false,
+    }
+}
+
+/**
+ * Custom hook to return performance data from the API.
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @param {boolean} isMock - Whether to use mock data.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Object | null,
+ *   error: boolean
+ * }} - An object containing the loading state, fetched average session data, and error state.
+ */
+export function useMockPerformance(userId, isMock) {
+    if (!isMock) {
+        return
+    }
+    const performance = USER_PERFORMANCE.find(
+        (user) => user.userId === parseInt(userId)
+    )
+    return {
+        isLoading: false,
+        data: performance,
         error: false,
     }
 }

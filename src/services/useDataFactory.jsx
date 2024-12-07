@@ -2,11 +2,13 @@ import { useDataOrigin } from '../hooks/useDataOrigin'
 import {
     useApiAverageSessions,
     useApiDailyActivity,
+    useApiPerformance,
     useApiUserInfos,
 } from './useApi'
 import {
     useMockAverageSessions,
     useMockDailyActivity,
+    useMockPerformance,
     useMockUserInfos,
 } from './useMock'
 // import PropTypes from 'prop-types'
@@ -60,6 +62,23 @@ export function useGetAveragesSessions(userId) {
     const { isMock } = useDataOrigin()
     const apiData = useApiAverageSessions(userId, isMock)
     const mockData = useMockAverageSessions(userId, isMock)
+    return isMock ? mockData : apiData
+}
+
+/**
+ * Custom hook factory pattern to return performance user data either from API or mock based on Data origin context
+ *
+ * @param {number} userId - The ID of the user to fetch data for.
+ * @returns {{
+ *   isLoading: boolean,
+ *   data: Object
+ *   error: boolean
+ * }} - An object containing the loading state, fetched performance data, and error state.
+ */
+export function useGetPerformance(userId) {
+    const { isMock } = useDataOrigin()
+    const apiData = useApiPerformance(userId, isMock)
+    const mockData = useMockPerformance(userId, isMock)
     return isMock ? mockData : apiData
 }
 

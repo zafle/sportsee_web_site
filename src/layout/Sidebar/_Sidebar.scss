@@ -4,7 +4,8 @@
 .sidebar {
     float: left;
     width: rem(117);
-    min-height: calc(100vh - rem(91));
+    height: calc(100vh - rem(91));
+    min-height: 870px;
     background: $secondary-color;
     display: flex;
     flex-direction: column;

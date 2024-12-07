@@ -14,7 +14,7 @@ export function DataOriginContextProvider({ children }) {
         // Retrieve the stored isMock value from localStorage, if available, and set it as the initial state.
         const storedIsMock = localStorage.getItem('isMock')
         const initialValue = JSON.parse(storedIsMock)
-        return initialValue || ''
+        return initialValue || true
     })
 
     /**

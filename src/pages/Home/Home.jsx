@@ -2,7 +2,7 @@ import AuthentificationForm from '../../components/Authentification/Authentifica
 
 /**
  * Component to display Home page (home page is used to display user authentification and data origin form)
- * @returns {JSX.Element}
+ * @returns {React.ReactElement}
  */
 function Home() {
     return <AuthentificationForm />

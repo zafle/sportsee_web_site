@@ -2,9 +2,9 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 main {
-    padding: rem(34) rem(45) rem(43) rem(107 + 60);
+    padding: rem(34) rem(36) rem(43) rem(117 + 36);
 
     @media #{$xxl-screen} {
-        padding: rem(68) rem(90) rem(86) rem(107 + 117);
+        padding: rem(68) rem(90) rem(86) rem(117 + 107);
     }
 }
