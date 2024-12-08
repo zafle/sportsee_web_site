@@ -1,4 +1,3 @@
-import { ProfileHeader } from '../../components/ProfileHeader/ProfileHeader'
 import DailyActivity from '../../components/DailyActivity/DailyActivity'
 import AverageSessions from '../../components/AverageSessions/AverageSessions'
 import Performance from '../../components/Performance/Performance'
@@ -12,6 +11,7 @@ import {
     getUserMainData,
     getUserPerformance,
 } from '../../services/dataFactory'
+import './_Profile.scss'
 
 /**
  * Renders a React Component to display Profil Page content :
@@ -39,7 +39,8 @@ function Profile() {
                 console.log('mainData', mainData)
                 setUserMainData(mainData)
                 const dailyActivity = await getUserDailyActivity(userId, isMock)
-                console.log('dailyActivity', dailyActivity.sessions)
+                console.log('dailyActivity', dailyActivity)
+                console.log('dailyActivity.sessions', dailyActivity.sessions)
                 setUserDailyActivity(dailyActivity.sessions)
                 const performance = await getUserPerformance(userId, isMock)
                 setUserPerformance(performance)
@@ -70,14 +71,35 @@ function Profile() {
         )
     }
 
-    if (userMainData && userDailyActivity) {
+    if (
+        userMainData &&
+        userDailyActivity &&
+        userAverageSessions &&
+        userPerformance
+    ) {
         return (
-            <>
-                <ProfileHeader name={userMainData.userInfos.firstName} />
-                <DailyActivity data={userDailyActivity} />
-                <AverageSessions data={userAverageSessions} />
-                <Performance data={userPerformance} />
-            </>
+            <div className="profile">
+                <header className="profile__header">
+                    <span>Bonjour </span>
+                    <span className="profile__header--name">
+                        {userMainData.userInfos.firstName}
+                    </span>
+                    <p className="profile__header--text">
+                        Félicitation ! Vous avez explosé vos objectifs hier 👏
+                    </p>
+                </header>
+                <section className="profile__section--daily-activity">
+                    <DailyActivity sessions={userDailyActivity} />
+                </section>
+                <div className="profile__chartgroup">
+                    <section className="profile__section--average-sessions">
+                        <AverageSessions sessions={userAverageSessions} />
+                    </section>
+                    <section className="profile__section--performance">
+                        <Performance performance={userPerformance} />
+                    </section>
+                </div>
+            </div>
         )
     }
 }

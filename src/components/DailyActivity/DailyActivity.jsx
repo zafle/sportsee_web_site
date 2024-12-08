@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
     Bar,
     BarChart,
@@ -14,29 +15,49 @@ import './_DailyActivity.scss'
 import PropTypes from 'prop-types'
 
 /**
- * Create the Daily Activity Chart developed with Recharts
- * Displays the daily weight and calories for a user, with custom tooltips
+ * Creates the Daily Activity Chart developed with Recharts
+ * Displays the daily weight and calories for a user
+ * Uses custom tooltips
  * Chart Title is a distinct React component
+ * @param {Object} props
+ * @param {Object} sessions
+ * @param {string} sessions.day a date 'YYYY-MM-DD'
+ * @param {number} sessions.kilogram
+ * @param {number} sessions.calories
  * @returns {React.ReactElement} A React component displaying the Daily Activity Chart
  */
 
-function DailyActivity({ data }) {
-    function formatDate(date) {
-        const formatedDate = new Date(date)
-        return formatedDate.getDate()
-    }
-    const sessions = data.map((session) => ({
-        ...session,
-        day: formatDate(session.day),
-    }))
+function DailyActivity({ sessions }) {
+    const [userSessions, setUserSessions] = useState()
 
+    useEffect(() => {
+        /**
+         * Format the full date into the date of the day
+         * @param {string} date a full date 'YYYY-MM-DD'
+         * @returns {number} returns the date of the day with no leading zero
+         */
+        function formatDate(date) {
+            const formatedDate = new Date(date)
+            return formatedDate.getDate()
+        }
+
+        // Construct a new array of sessions replacing fulldate with date of the day
+        const formatedSessions = sessions.map((session) => ({
+            ...session,
+            day: formatDate(session.day),
+        }))
+
+        setUserSessions(formatedSessions)
+    }, [sessions])
+
+    // Construct the Daily Activity Chart with Recharts
     const renderBarChart = (
         <BarChart
             width={835}
             height={320}
-            data={sessions}
+            data={userSessions}
             barGap={8}
-            className="daily-activity__barchart"
+            className="daily-activity__chart__barchart"
             margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
         >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -74,7 +95,7 @@ function DailyActivity({ data }) {
                 align="right"
                 verticalAlign="top"
                 formatter={(value) => (
-                    <span className="daily-activity__barchart--legend">
+                    <span className="daily-activity__chart__barchart--legend">
                         {value}
                     </span>
                 )}
@@ -103,16 +124,14 @@ function DailyActivity({ data }) {
     )
 
     return (
-        <section className="daily-activity">
-            <div className="daily-activity__chart">
-                <ChartTitle title="Activité quotidienne" classname="activity" />
-                {renderBarChart}
-            </div>
-        </section>
+        <div className="daily-activity__chart">
+            <ChartTitle title="Activité quotidienne" classname="activity" />
+            {renderBarChart}
+        </div>
     )
 }
 export default DailyActivity
 
 DailyActivity.propTypes = {
-    data: PropTypes.array.isRequired,
+    sessions: PropTypes.array.isRequired,
 }

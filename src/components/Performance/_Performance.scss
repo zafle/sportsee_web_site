@@ -1,0 +1,30 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.performance__chart {
+    &__barchart {
+        background: $secondary-contrast;
+        border-radius: rem(5);
+
+        &--ticks > g {
+            g:nth-child(1) {
+                transform: translateY(5px);
+            }
+            g:nth-child(2) {
+                transform: translateY(5px);
+            }
+            g:nth-child(3) {
+                transform: translateY(15px);
+            }
+            g:nth-child(4) {
+                transform: translateY(5px);
+            }
+            g:nth-child(5) {
+                transform: translateY(5px);
+            }
+            g:nth-child(6) {
+                transform: translateY(-6px);
+            }
+        }
+    }
+}

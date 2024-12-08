@@ -1,17 +1,9 @@
 @use '../../assets/styles/abstract/variables' as *;
 @use '../../assets/styles/abstract/functions' as *;
 
-.average-sessions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: rem(258);
-    height: rem(263);
-    // margin-top: rem(78);
+.average-sessions__chart {
+    position: relative;
 
-    &__chart {
-        position: relative;
-    }
     &__linechart {
         position: absolute;
         top: 0;
@@ -21,6 +13,7 @@
     }
     &__days {
         position: absolute;
+        width: rem(258);
         bottom: 24px;
         right: 0;
         left: 0;
@@ -32,6 +25,7 @@
         opacity: 0.6;
     }
 }
+
 .chart_title--average-sessions {
     color: white;
     opacity: 0.6;

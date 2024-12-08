@@ -1,0 +1,25 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.profile {
+    &__header {
+        font-size: rem(48);
+        &--name {
+            color: $primary-color;
+        }
+        &--text {
+            font-size: rem(18);
+            font-weight: $regular-weight;
+            margin-top: rem(40);
+        }
+    }
+    &__section--daily-activity {
+        margin-top: rem(78);
+    }
+    &__chartgroup {
+        display: flex;
+        justify-content: space-between;
+        width: rem(835);
+        margin-top: rem(30);
+    }
+}
