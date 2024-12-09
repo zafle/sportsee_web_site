@@ -12,19 +12,19 @@ import './_CustomTooltip.scss'
  * @returns {React.ReactElement|null} The tooltip content or null if inactive.
  */
 export default function CustomTooltip({ active, payload }) {
-    if (active && payload && payload.length) {
-        return (
-            <div className="custom-tooltip">
-                <p className="custom-tooltip__weight">{`${payload[0].value}kg`}</p>
-                <p className="custom-tooltip__cal">{`${payload[1].value}Kcal`}</p>
-            </div>
-        )
-    }
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="custom-tooltip__weight">{`${payload[0].value}${payload[0].dataKey}`}</p>
+        <p className="custom-tooltip__cal">{`${payload[1].value}${payload[1].dataKey}`}</p>
+      </div>
+    )
+  }
 
-    return null
+  return null
 }
 
 CustomTooltip.propTypes = {
-    active: PropTypes.bool,
-    payload: PropTypes.array,
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 }
