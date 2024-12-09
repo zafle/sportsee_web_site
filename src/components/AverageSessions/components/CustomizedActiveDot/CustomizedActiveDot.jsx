@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
  * @param {Object} props - The component props.
  * @param {number} props.cx x dot coordinates
  * @param {number} props.cy y dot coordinates
- * @returns {React.ReactElement}
+ * @returns {React.ReactElement} Returns the svg for the Average Sessions Chart active dot
  */
 
 function CustomizedActiveDot({ cx, cy }) {

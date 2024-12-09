@@ -13,9 +13,9 @@ import './_AverageSessions.scss'
  * Chart Title is a distinct React component
  * Days labels are added in a span tag
  * @param {Object} props
- * @param {Object} sessions
- * @param {number} sessions.day
- * @param {number} sessions.sessionLength
+ * @param {Object[]} sessions
+ * @param {number} sessions[].day
+ * @param {number} sessions[].sessionLength
  * @returns {React.ReactElement} A React component displaying the average session chart
  */
 

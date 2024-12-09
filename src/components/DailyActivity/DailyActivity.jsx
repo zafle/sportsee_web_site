@@ -20,10 +20,10 @@ import PropTypes from 'prop-types'
  * Uses custom tooltips
  * Chart Title is a distinct React component
  * @param {Object} props
- * @param {Object} sessions
- * @param {string} sessions.day a date 'YYYY-MM-DD'
- * @param {number} sessions.kilogram
- * @param {number} sessions.calories
+ * @param {Object[]} sessions
+ * @param {string} sessions[].day a date 'YYYY-MM-DD'
+ * @param {number} sessions[].kilogram
+ * @param {number} sessions[].calories
  * @returns {React.ReactElement} A React component displaying the Daily Activity Chart
  */
 

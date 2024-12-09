@@ -12,53 +12,78 @@ import {
     getUserPerformance,
 } from '../../services/dataFactory'
 import './_Profile.scss'
+import { useNavigate } from 'react-router-dom'
 
 /**
- * Renders a React Component to display Profil Page content :
- * - Page's Header, Daily Activity Chart, Average sessions Chart,
+ * Renders a React Component to display Profile Page content :
+ * - Page's Header, Daily Activity Chart, Average sessions Chart, Performance Chart
  * @returns {React.ReactElement} Profile page
  */
 function Profile() {
+    // get user Id and data source from contexts
     const { userId } = useAccount()
     const { isMock } = useDataOrigin()
 
+    //  create states for datas
     const [userMainData, setUserMainData] = useState(null)
     const [userDailyActivity, setUserDailyActivity] = useState(null)
     const [userPerformance, setUserPerformance] = useState(null)
     const [userAverageSessions, setUserAverageSessions] = useState(null)
 
+    // creat isLoading and error data to manage datas states
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
 
+    const navigate = useNavigate()
+
+    // get user data if user is logged, else redirect to homepage authentification form
     useEffect(() => {
-        setIsLoading(true)
-        async function getUserData() {
-            setIsLoading(true)
-            try {
-                const mainData = await getUserMainData(userId, isMock)
-                console.log('mainData', mainData)
-                setUserMainData(mainData)
-                const dailyActivity = await getUserDailyActivity(userId, isMock)
-                console.log('dailyActivity', dailyActivity)
-                console.log('dailyActivity.sessions', dailyActivity.sessions)
-                setUserDailyActivity(dailyActivity.sessions)
-                const performance = await getUserPerformance(userId, isMock)
-                setUserPerformance(performance)
-                const averageSessions = await getUserAverageSessions(
-                    userId,
-                    isMock
-                )
-                setUserAverageSessions(averageSessions.sessions)
-                console.log('averageSessions', averageSessions)
-            } catch (err) {
-                console.error(err)
-                setError(true)
-            } finally {
-                setIsLoading(false)
+
+        if (userId !== null || isMock !== null) {
+
+            // async function to get data from data Factory
+            async function getUserData() {
+
+                // as long as datas are not stored into states, isLoading is true
+                setIsLoading(true)
+
+                // get data from Data Factory and set state
+                try {
+                    const mainData = await getUserMainData(userId, isMock)
+                    setUserMainData(mainData)
+
+                    const dailyActivity = await getUserDailyActivity(
+                        userId,
+                        isMock
+                    )
+                    setUserDailyActivity(dailyActivity.sessions)
+
+                    const averageSessions = await getUserAverageSessions(
+                        userId,
+                        isMock
+                    )
+                    setUserAverageSessions(averageSessions.sessions)
+
+                    const performance = await getUserPerformance(userId, isMock)
+                    setUserPerformance(performance)
+
+                    // if an error occured, catch it and set Error state to true
+                } catch (err) {
+                    console.log(err.toJSON())
+                    setError(true)
+
+                    // finally set isLoading state to false
+                } finally {
+                    setIsLoading(false)
+                }
             }
+            getUserData()
+
+        } else {
+            // if user is not logged, navigate to home page
+            navigate('/', { replace: true })
         }
-        getUserData()
-    }, [userId, isMock])
+    }, [userId, isMock, navigate])
 
     if (isLoading) return <Loader />
 

@@ -4,7 +4,7 @@ import './_Sidebar.scss'
 
 /**
  * Renders the main App Sidebar displayed on all pages
- * The sidebar content will change based upon the url of the it is displayed on.
+ * The sidebar content will change based upon the url of the page it is displayed on.
  * @returns {React.ReactElement} Sidebar
  */
 function Sidebar() {

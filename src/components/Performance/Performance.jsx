@@ -17,7 +17,7 @@ import './_Performance.scss'
  * @param {Object} performance
  * @param {String} performance.userId user id
  * @param {Object} performance.kind literal object associating IDs and labels for performance categories
- * @param {Object} performance.data
+ * @param {Object} performance.data array of key/values objects (value/kind)
  * @param {number} performance.data.value value for specified category (performance.data.kind)
  * @param {number} performance.data.kind category's ID
  * @returns {React.ReactElement} A React component displaying the Performance Chart
