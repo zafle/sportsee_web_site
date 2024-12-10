@@ -1,0 +1,24 @@
+@use '../../../assets/styles/abstract/variables' as *;
+@use '../../../assets/styles/abstract/functions' as *;
+
+.score__legend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: rem(160);
+  height: rem(160);
+  text-align: center;
+
+  &--percent {
+    font-size: rem(26);
+    font-weight: $bold-weight;
+    margin-bottom: rem(4);
+  }
+  &--text {
+    color: $dark-grey;
+    font-size: rem(16);
+    line-height: rem(26);
+    width: rem(95);
+  }
+}

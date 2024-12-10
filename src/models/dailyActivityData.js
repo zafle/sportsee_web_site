@@ -1,6 +1,6 @@
 export function dailyActivityData(sessions) {
   /**
-   * Format the full date into the date of the day
+   * Formats the full date into the date of the day
    * @param {string} date a full date 'YYYY-MM-DD'
    * @returns {number} returns the date of the day with no leading zero
    */
@@ -11,10 +11,23 @@ export function dailyActivityData(sessions) {
 
   // Construct a new array of sessions replacing fulldate with date of the day
   const formattedSessions = sessions.map((session) => ({
-    day: formatDate(session.day),
-    kg: session.kilogram,
-    Kcal: session.calories,
+    XaxisTick: formatDate(session.day),
+    YdataBar1: session.kilogram,
+    YdataBar2: session.calories,
   }))
 
-  return formattedSessions
+  // units array to use in the BarChart
+  const units = {
+    unitBar1: 'kg',
+    unitBar2: 'kCal',
+    nameBar1: 'Poids (kg)',
+    nameBar2: 'Calories brûlées (kCal)',
+  }
+
+  const formattedData = {
+    values: formattedSessions,
+    units: units,
+  }
+
+  return formattedData
 }

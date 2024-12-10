@@ -1,20 +1,23 @@
-import DailyActivity from '../../components/DailyActivity/DailyActivity'
-import AverageSessions from '../../components/AverageSessions/AverageSessions'
-import Performance from '../../components/Performance/Performance'
+import BarGraph from '../../components/BarGraph/BarGraph'
+import LineGraph from '../../components/LineGraph/LineGraph'
+import RadarGraph from '../../components/RadarGraph/RadarGraph'
+import RadialBarGraph from '../../components/RadialBarGraph/RadialBarGraph'
+import Loader from '../../components/Loader/Loader'
 import { useAccount } from '../../hooks/useAccount'
 import { useDataOrigin } from '../../hooks/useDataOrigin'
 import { useEffect, useState } from 'react'
-import Loader from '../../components/Loader/Loader'
 import {
   getUserAverageSessions,
   getUserDailyActivity,
   getUserMainData,
   getUserPerformance,
 } from '../../services/dataFactory'
-import './_Profile.scss'
 import { useNavigate } from 'react-router-dom'
 import { dailyActivityData } from '../../models/dailyActivityData'
 import { performanceData } from '../../models/performanceData'
+import { mainDataData } from '../../models/mainDataData'
+import { averageSessionsData } from '../../models/averageSessionsData'
+import './_Profile.scss'
 
 /**
  * Renders a React Component to display Profile Page content :
@@ -47,18 +50,23 @@ function Profile() {
         setIsLoading(true)
 
         // get data from Data Factory
-        // format data if needed
+        // format data
         // and set state
         try {
           const mainData = await getUserMainData(userId, isMock)
-          setUserMainData(mainData)
+          const formattedMainData = mainDataData(mainData)
+          setUserMainData(formattedMainData)
 
           const dailyActivity = await getUserDailyActivity(userId, isMock)
           const formattedSessions = dailyActivityData(dailyActivity.sessions)
           setUserDailyActivity(formattedSessions)
 
           const averageSessions = await getUserAverageSessions(userId, isMock)
-          setUserAverageSessions(averageSessions.sessions)
+          const formattedAverageSessions = averageSessionsData(
+            averageSessions.sessions,
+            dailyActivity.sessions
+          )
+          setUserAverageSessions(formattedAverageSessions)
 
           const performance = await getUserPerformance(userId, isMock)
           const formattedPerformance = performanceData(performance)
@@ -102,21 +110,27 @@ function Profile() {
         <header className="profile__header">
           <span>Bonjour </span>
           <span className="profile__header--name">
-            {userMainData.userInfos.firstName}
+            {userMainData.firstName}
           </span>
           <p className="profile__header--text">
             Félicitation ! Vous avez explosé vos objectifs hier 👏
           </p>
         </header>
         <section className="profile__section--daily-activity">
-          <DailyActivity sessions={userDailyActivity} />
+          <BarGraph data={userDailyActivity} title="Activités quotidiennes" />
         </section>
         <div className="profile__chartgroup">
           <section className="profile__section--average-sessions">
-            <AverageSessions sessions={userAverageSessions} />
+            <LineGraph
+              data={userAverageSessions}
+              title="Durée moyenne des sessions"
+            />
           </section>
           <section className="profile__section--performance">
-            <Performance performance={userPerformance} />
+            <RadarGraph data={userPerformance} />
+          </section>
+          <section className="profile__section--score">
+            <RadialBarGraph data={userMainData.score} title="Score" />
           </section>
         </div>
       </div>

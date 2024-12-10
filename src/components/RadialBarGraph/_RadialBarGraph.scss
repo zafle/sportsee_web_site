@@ -1,0 +1,15 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.radialbargraph {
+  position: relative;
+
+  &__radialbarchart {
+    background: $background-grey;
+    border-radius: rem(5);
+  }
+}
+
+.chart_title--radialbargraph {
+  color: $x-dark-grey;
+}

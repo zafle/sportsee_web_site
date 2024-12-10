@@ -1,14 +1,14 @@
 import {
-    fetchUserAverageSessions,
-    fetchUserDailyActivity,
-    fetchUserMainData,
-    fetchUserPerformance,
+  fetchUserAverageSessions,
+  fetchUserDailyActivity,
+  fetchUserMainData,
+  fetchUserPerformance,
 } from './fetchuserData'
 import {
-    getMockUserAverageSessions,
-    getMockUserDailyActivity,
-    getMockUserMainData,
-    getMockUserPerformance,
+  getMockUserAverageSessions,
+  getMockUserDailyActivity,
+  getMockUserMainData,
+  getMockUserPerformance,
 } from './getMockUserData'
 
 /**
@@ -22,11 +22,10 @@ import {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function getUserMainData(userId, isMock) {
-    console.log('isMock from factory', isMock)
-    const userMainData = isMock
-        ? getMockUserMainData(userId)
-        : await fetchUserMainData(userId)
-    return userMainData
+  const userMainData = isMock
+    ? getMockUserMainData(userId)
+    : await fetchUserMainData(userId)
+  return userMainData
 }
 /**
  * Factory function to return User Daily Activity data either from Mock or API.
@@ -39,10 +38,10 @@ export async function getUserMainData(userId, isMock) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function getUserDailyActivity(userId, isMock) {
-    const userDailyActivity = isMock
-        ? getMockUserDailyActivity(userId)
-        : await fetchUserDailyActivity(userId)
-    return userDailyActivity
+  const userDailyActivity = isMock
+    ? getMockUserDailyActivity(userId)
+    : await fetchUserDailyActivity(userId)
+  return userDailyActivity
 }
 
 /**
@@ -56,10 +55,10 @@ export async function getUserDailyActivity(userId, isMock) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function getUserAverageSessions(userId, isMock) {
-    const userAverageSessions = isMock
-        ? getMockUserAverageSessions(userId)
-        : await fetchUserAverageSessions(userId)
-    return userAverageSessions
+  const userAverageSessions = isMock
+    ? getMockUserAverageSessions(userId)
+    : await fetchUserAverageSessions(userId)
+  return userAverageSessions
 }
 
 /**
@@ -73,8 +72,8 @@ export async function getUserAverageSessions(userId, isMock) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function getUserPerformance(userId, isMock) {
-    const userPerformance = isMock
-        ? getMockUserPerformance(userId)
-        : await fetchUserPerformance(userId)
-    return userPerformance
+  const userPerformance = isMock
+    ? getMockUserPerformance(userId)
+    : await fetchUserPerformance(userId)
+  return userPerformance
 }

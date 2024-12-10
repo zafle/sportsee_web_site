@@ -1,9 +1,22 @@
-export function averageSessionsData(sessions) {
+export function averageSessionsData(averageSessions, dailyActivity) {
   function formatDay(date) {
-    const newDate = new Date(date)
-    const weekDay = newDate.getDay()
-    const shortDay = weekDay.toLocaleString('fr-FR', 'short')
-    console.log('day', shortDay)
+    const options = { weekday: 'long' }
+    const weekDay = new Intl.DateTimeFormat('fr-FR', options).format(date)
+    return weekDay.charAt(0).toUpperCase()
   }
-  console.log(formatDay())
+
+  const formattedAverageSessions = averageSessions.map((session, index) => {
+    const letterDay = formatDay(new Date(dailyActivity[index].day))
+    return {
+      Xdata: letterDay,
+      Ydata: session.sessionLength,
+    }
+  })
+
+  const formattedData = {
+    values: formattedAverageSessions,
+    unit: 'min',
+  }
+
+  return formattedData
 }

@@ -1,0 +1,9 @@
+@use '../../../../assets/styles/abstract/variables' as *;
+@use '../../../../assets/styles/abstract/functions' as *;
+
+.linegraph__custom-tooltip--text {
+  font-size: rem(8);
+  display: block;
+  line-height: rem(25);
+  text-align: center;
+}

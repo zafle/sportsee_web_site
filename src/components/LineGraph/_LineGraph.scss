@@ -1,0 +1,31 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.linegraph {
+  position: relative;
+
+  &__linechart {
+    background: $primary-color;
+    border-radius: rem(5);
+  }
+  &__ticks {
+    position: absolute;
+    width: rem(258);
+    bottom: 24px;
+    right: 0;
+    left: 0;
+    text-align: center;
+    letter-spacing: 29px;
+    text-indent: 13px;
+    font-size: rem(12);
+    color: white;
+    opacity: 0.6;
+  }
+}
+
+.chart_title--linegraph {
+  color: white;
+  opacity: 0.6;
+  width: 60%;
+  line-height: 24px;
+}
