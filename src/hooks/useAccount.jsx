@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { AccountContext } from '../context/AccountContext'
+import AccountContext from '../context/AccountContext'
 
 /**
  * Custom hook to access the `AccountContext`.
@@ -8,6 +8,8 @@ import { AccountContext } from '../context/AccountContext'
  * @returns {Object.< userId: number | null, defineUserId: Function >} An object containing the current user ID and a function to update it.
  *
  */
-export function useAccount() {
-    return useContext(AccountContext)
+function useAccount() {
+  return useContext(AccountContext)
 }
+
+export default useAccount

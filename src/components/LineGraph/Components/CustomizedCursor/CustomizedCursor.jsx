@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types'
 
 /**
- * Renders a customized cursor to display in LineGraph Component when hover
- * This component is used in the Recharts Tooltip component
+ * Renders a customized cursor for the Recharts Tooltip to display in LineChart Recharts Component when hover
+ *
  * @param {Object} props - The component props.
  * @param {Array.<{x: number, y: number}>} props.points - Array of two objects containing cursor coordinates
- * @param {number} props.point[0].x x coordinates of the cursor's line start point
- * @param {number} props.point[0].y y coordinates of the cursor's line start point
- * @param {number} props.point[1].x x coordinates of the cursor's line end point
- * @param {number} props.point[1].y x coordinates of the cursor's line end point
+ * @param {number} props.points[0].x x coordinates of the cursor's line start point
+ * @param {number} props.points[0].y y coordinates of the cursor's line start point
+ * @param {number} props.points[1].x x coordinates of the cursor's line end point
+ * @param {number} props.points[1].y y coordinates of the cursor's line end point
+ *
  * @returns {React.ReactElement} A transparent black rectangle that displays on the right side of the hovered active point.
  */
 function CustomizedCursor({ points }) {

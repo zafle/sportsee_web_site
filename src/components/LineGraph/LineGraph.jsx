@@ -7,18 +7,20 @@ import PropTypes from 'prop-types'
 import './_LineGraph.scss'
 
 /**
- * Customized LineChart developed with Recharts
- * Uses custom cursor, custom tooltips and a custom gradient line
- * Chart Title is a distinct React component
+ * Renders a customized LineChart developed with Recharts
+ * Displays a single line chart
  * X axis ticks are added in a span tag
+ *
  * @param {Object} props
- * @param {Object} data
- * @param {Array.<Object>} data.values[]
- * @param {number} data.values[].XData data for X axis
- * @param {number} data.values[].Ydata data for Y axis
- * @param {string} data.unit  Y data unit, displays in Tooltip
- * @param {string} title LineGraph Title
- * @returns {React.ReactElement} A React component displaying a line chart
+ * @param {Object} props.data data for LineGraph
+ * @param {Object[]} props.data.values data for LineChart
+ * @param {string} props.data.values[].Xdata data for X axis
+ * @param {integer} props.data.values[].Ydata data for Y axis
+ * @param {string} props.data.unit  Y data unit, displays in Tooltip
+ *
+ * @param {string} props.title LineGraph Title
+ *
+ * @returns {React.ReactElement} A React component displaying a customized Recharts LineChart
  */
 
 function LineGraph({ data, title }) {
@@ -28,7 +30,6 @@ function LineGraph({ data, title }) {
     ticks = ticks + value.Xdata
   })
 
-  // Construct the customed Chart with Recharts
   const renderLineChart = (
     <LineChart
       width={258}
@@ -76,7 +77,16 @@ function LineGraph({ data, title }) {
 }
 
 LineGraph.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    values: PropTypes.arrayOf(
+      PropTypes.shape({
+        Xdata: PropTypes.string.isRequired,
+        Ydata: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+    unit: PropTypes.string.isRequired,
+  }).isRequired,
   title: PropTypes.string.isRequired,
 }
+
 export default LineGraph

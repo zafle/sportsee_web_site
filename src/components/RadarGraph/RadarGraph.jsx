@@ -10,15 +10,17 @@ import PropTypes from 'prop-types'
 import './_RadarGraph.scss'
 
 /**
- * Customized RadarChart developed with Recharts
+ * Renders a customized RadarChart developed with Recharts
+ * Displays a radar chart with 6 categories
+ *
  * @param {Object} props
- * @param {Array.<Object>} data
- * @param {number} data[].value category'value
- * @param {number} data[].kind category's ID
- * @returns {React.ReactElement} A React component displaying a customized Chart
+ * @param {Object[]} props.data data for RadarChart
+ * @param {number} props.data[].value category'value
+ * @param {string} props.data[].kind category's name
+ *
+ * @returns {React.ReactElement} A React component displaying a customized Recharts RadarChart
  */
 function RadarGraph({ data }) {
-  // construct Performance Chart using Recharts
   const renderRadarChart = (
     <RadarChart
       outerRadius={88}
@@ -55,7 +57,12 @@ function RadarGraph({ data }) {
 }
 
 RadarGraph.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number.isRequired,
+      kind: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 }
 
 export default RadarGraph

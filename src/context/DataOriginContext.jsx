@@ -10,7 +10,9 @@ import { createContext } from 'react'
  *
  * @type {React.Context<DataOriginContexttValue>}
  */
-export const DataOriginContext = createContext({
-    isMock: null,
-    defineIsMock: () => {},
+const DataOriginContext = createContext({
+  isMock: null,
+  defineIsMock: () => {},
 })
+
+export default DataOriginContext

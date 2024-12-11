@@ -1,9 +1,9 @@
 /**
- * Construct a new array of user performance formatted data
- * Used in Performance React Component that displays Performance RadarChart
+ * Formats User Performance data from API / Mock to be used in Profile Component
+ * Formatted data is used in RadarGraph Component that displays Recharts RadarChart
  *
  * @param {Object} performance User performance data
- * @param {Object} performance.userId User ID
+ * @param {integer} performance.userId User ID
  * @param {Object.<
  * 1: string,
  * 2: string,
@@ -12,15 +12,17 @@
  * 5: string,
  * 6: string,
  *  >} performance.kind Categories names for user performances
- * @param {Array.<Object.< value: number, kind: number >>} performance.data performance value and kind ID
+ * @param {Array.<{ value: integer, kind: integer }>} performance.data performance value and kind ID
  *
- * @returns {Array.<Object.< value: number, kind: string >>} formattedPerformance : performance value and performance kind in french
+ * @returns {Array.<{ value: integer, kind: string }>}
+ * Returns formatted user performance data used in Recharts RadarChart
  */
 
 export function performanceData(performance) {
   /**
    * Returns the category french translation for the chart
    * @param {string} category category in english
+   *
    * @returns {string} category in french
    */
   function frenchTranslate(category) {
@@ -42,15 +44,14 @@ export function performanceData(performance) {
     }
   }
 
-  // create a new array value: number/category: string by replacing categorys'id with category's name in french
-  // store categories object into a constant
+  // Object containing categories english names
   const kindNames = performance.kind
 
-  // store value/category's id array into a constant
+  // Array containing category's value (value) and id (kind)
   const kindValues = performance.data
 
-  // create a new array value/category by retrieving name's category in kindNames array
-  // using the id stored in kindValues and translate it in french
+  // Maps kindValues to replace category's ID (kind) with its corresponding name (get in kindNames using index)
+  // and translate it in french
   const formattedPerformance = kindValues.map((element) => ({
     ...element,
     kind: frenchTranslate(kindNames[element.kind]),

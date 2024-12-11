@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 
 /**
- * Renders a customized active dot to display in LineGraph Rechart LineChart when hover (active dot)
+ * Renders a customized active dot to display in Recharts LineChart when hover (active dot)
+ *
  * @param {Object} props - The component props.
  * @param {number} props.cx x dot coordinates
  * @param {number} props.cy y dot coordinates
- * @returns {React.ReactElement} Returns the svg for the LineGraph active dot
+ *
+ * @returns {React.ReactElement} Returns the svg for the LineChart active dot
  */
 
 function CustomizedActiveDot({ cx, cy }) {

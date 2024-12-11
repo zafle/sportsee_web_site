@@ -1,10 +1,23 @@
 import { Legend, PolarAngleAxis, RadialBar, RadialBarChart } from 'recharts'
-import { CustomLegend } from './components/CustomLegend'
+import CustomLegend from './components/CustomLegend'
 import ChartTitle from '../ChartTitle/ChartTitle'
 import colors from '../../assets/colors/colors'
 import PropTypes from 'prop-types'
 import './_RadialBarGraph.scss'
 
+/**
+ * Renders a customized RadiaBarChart developed with Recharts
+ * Displays one radial line that indicates a percentage
+ *
+ * @param {Object} props
+ * @param {Object[]} props.data data for RadiaBarChart
+ * @param {string} props.data[].name name for the displayed value
+ * @param {number} props.data[].value value for displayed data
+ *
+ * @param {string} props.title title for ChartTitle Component
+ *
+ * @returns {React.ReactElement} A React component displaying a customized Recharts RadiaBarChart
+ */
 function RadialBarGraph({ data, title }) {
   const renderRadialBarChart = (
     <RadialBarChart
@@ -48,7 +61,12 @@ function RadialBarGraph({ data, title }) {
 }
 
 RadialBarGraph.propTypes = {
-  data: PropTypes.array.isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+    })
+  ).isRequired,
   title: PropTypes.string.isRequired,
 }
 

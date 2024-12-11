@@ -1,4 +1,5 @@
 import { BounceLoader } from 'react-spinners'
+import colors from '../../assets/colors/colors'
 import './_Loader.scss'
 
 /**
@@ -7,5 +8,5 @@ import './_Loader.scss'
  */
 
 export default function Loader() {
-    return <BounceLoader color="#ff0101" className="loader" />
+  return <BounceLoader color={colors.primaryColor} className="loader" />
 }

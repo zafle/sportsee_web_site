@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { DataOriginContext } from '../context/DataOriginContext'
+import DataOriginContext from '../context/DataOriginContext'
 
 /**
  * Custom hook to access the DataOriginContext
@@ -8,6 +8,8 @@ import { DataOriginContext } from '../context/DataOriginContext'
  * @returns {Object.< isMock: boolean | null, defineIsMock: Function >} An object containing the current isMock value and a function to update it.
  *
  */
-export function useDataOrigin() {
-    return useContext(DataOriginContext)
+function useDataOrigin() {
+  return useContext(DataOriginContext)
 }
+
+export default useDataOrigin

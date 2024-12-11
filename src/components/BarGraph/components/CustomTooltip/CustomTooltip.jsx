@@ -2,13 +2,16 @@ import PropTypes from 'prop-types'
 import './_CustomTooltip.scss'
 
 /**
- * Renders the custom content for the Tooltip in BarGraph React Component.
+ * Renders the custom content for the Tooltip in Recharts BarChart.
+ *
  * @param {Object} props - The component props.
+ *
  * @param {boolean} props.active - Indicates whether the Tooltip is active.
- * @param {Array.<Object>} props.payload - Array of two objects containing the data from the tooltip.
+ * @param {Object[]} props.payload - Array of two objects containing the data from the tooltip.
  * @param {number} props.payload[0].value - unit bar 1
  * @param {number} props.payload[1].value - unit bar 2
- * @returns {React.ReactElement|null} The tooltip content or null if Tooltip is inactive.
+ *
+ * @returns {React.ReactElement|null} The tooltip content | null if Tooltip is inactive.
  */
 export default function CustomTooltip({ active, payload }) {
   if (active && payload && payload.length) {

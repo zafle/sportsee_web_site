@@ -10,7 +10,9 @@ import { createContext } from 'react'
  *
  * @type {React.Context<AccountContextValue>}
  */
-export const AccountContext = createContext({
-    userId: null,
-    defineUserId: () => {},
+const AccountContext = createContext({
+  userId: null,
+  defineUserId: () => {},
 })
+
+export default AccountContext

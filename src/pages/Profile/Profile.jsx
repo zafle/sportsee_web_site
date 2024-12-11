@@ -1,27 +1,33 @@
-import BarGraph from '../../components/BarGraph/BarGraph'
-import LineGraph from '../../components/LineGraph/LineGraph'
-import RadarGraph from '../../components/RadarGraph/RadarGraph'
-import RadialBarGraph from '../../components/RadialBarGraph/RadialBarGraph'
-import Loader from '../../components/Loader/Loader'
-import { useAccount } from '../../hooks/useAccount'
-import { useDataOrigin } from '../../hooks/useDataOrigin'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import useAccount from '../../hooks/useAccount'
+import useDataOrigin from '../../hooks/useDataOrigin'
+
 import {
   getUserAverageSessions,
   getUserDailyActivity,
   getUserMainData,
   getUserPerformance,
 } from '../../services/dataFactory'
-import { useNavigate } from 'react-router-dom'
+
 import { dailyActivityData } from '../../models/dailyActivityData'
 import { performanceData } from '../../models/performanceData'
 import { mainDataData } from '../../models/mainDataData'
 import { averageSessionsData } from '../../models/averageSessionsData'
+
+import BarGraph from '../../components/BarGraph/BarGraph'
+import LineGraph from '../../components/LineGraph/LineGraph'
+import RadarGraph from '../../components/RadarGraph/RadarGraph'
+import RadialBarGraph from '../../components/RadialBarGraph/RadialBarGraph'
+import Loader from '../../components/Loader/Loader'
+
 import './_Profile.scss'
 
 /**
  * Renders a React Component to display Profile Page content :
  * - Page's Header, Daily Activity Chart, Average sessions Chart, Performance Chart
+ *
  * @returns {React.ReactElement} Profile page
  */
 function Profile() {
