@@ -1,0 +1,57 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.keydata {
+  display: flex;
+  width: rem(186);
+  background-color: $background-grey;
+  border-radius: rem(5);
+
+  padding: rem(24);
+
+  @media #{$xxl-screen} {
+    width: rem(258);
+    padding: rem(32);
+  }
+
+  &__image {
+    width: rem(52);
+    height: rem(52);
+
+    @media #{$xxl-screen} {
+      width: rem(60);
+      height: rem(60);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: rem(12);
+
+    @media #{$xxl-screen} {
+      margin-left: rem(24);
+    }
+
+    &--count {
+      font-size: rem(16);
+      font-weight: $bold-weight;
+      color: $secondary-contrast;
+      margin-bottom: rem(8);
+
+      @media #{$xxl-screen} {
+        font-size: rem(20);
+      }
+    }
+
+    &--kind {
+      font-size: rem(12);
+      color: $dark-grey;
+
+      @media #{$xxl-screen} {
+        font-size: rem(14);
+      }
+    }
+  }
+}

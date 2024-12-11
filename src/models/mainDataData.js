@@ -10,16 +10,22 @@ import LipidIcon from '../assets/images/lipid-icon.svg'
  * 'keyData' data is used in UserKeyData Component
  *
  * @param {Object} maindata User Main Data data from API / Mock
+ *
  * @param {integer} maindata.id User ID
- * @param {Object.< firstName: string, lastName: string, age: integer >} maindata.userInfos User infos
+ *
+ * @param {Object[]} maindata.userInfos User infos
+ * @param {string} maindata.userInfos[].firstName User first name
+ * @param {string} maindata.userInfos[].lastName User first name
+ * @param {integer} maindata.userInfos[].age User first name
+ *
  * @param {number} [maindata.score] User score (maindata.score | maindata.todayScore)
  * @param {number} [maindata.todayScore] User score (maindata.score | maindata.todayScore)
- * @param {Object.<
- * calorieCount: integer,
- * proteinCount: integer,
- * carbohydrateCount: integer,
- * lipidCount: integer
- * >} maindata.keyData User key data
+ *
+ * @param {Object[]} maindata.keyData User key data
+ * @param {integer} maindata.keyData[].calorieCount
+ * @param {integer} maindata.keyData[].proteinCount
+ * @param {integer} maindata.keyData[].carbohydrateCount
+ * @param {integer} maindata.keyData[].lipidCount
  *
  * @returns {Object.<
  *  firstName: string,
@@ -40,9 +46,11 @@ export function mainDataData(maindata) {
   // the data category name in french (kind),
   // the icon to display
   const keyData = maindata.keyData
+
   const formattedKeyData = [
     {
-      count: (keyData.calorieCount / 1000).toFixed(3) + 'kCal',
+      count:
+        (keyData.calorieCount / 1000).toFixed(3).replace('.', ',') + 'kCal',
       kind: 'Calories',
       icon: CaloriesIcon,
     },

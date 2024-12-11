@@ -2,24 +2,40 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 .profile {
-    &__header {
-        font-size: rem(48);
-        &--name {
-            color: $primary-color;
-        }
-        &--text {
-            font-size: rem(18);
-            font-weight: $regular-weight;
-            margin-top: rem(40);
-        }
+  &__header {
+    font-size: rem(48);
+    &--name {
+      color: $primary-color;
     }
-    &__section--daily-activity {
-        margin-top: rem(78);
+    &--text {
+      font-size: rem(18);
+      font-weight: $regular-weight;
+      margin-top: rem(40);
     }
-    &__chartgroup {
-        display: flex;
-        justify-content: space-between;
-        width: rem(835);
-        margin-top: rem(30);
+  }
+  &__maincontent {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: rem(78);
+  }
+
+  &__chartgroup {
+    display: flex;
+    justify-content: space-between;
+    width: rem(835);
+    margin-top: rem(30);
+  }
+  &__userkeydata {
+    display: flex;
+    gap: rem(30);
+    margin-top: rem(30);
+
+    @media #{$xxl-screen} {
+      flex-direction: column;
+      justify-content: space-between;
+      gap: unset;
+      margin-left: rem(30);
+      margin-top: 0;
     }
+  }
 }

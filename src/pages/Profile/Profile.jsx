@@ -20,6 +20,7 @@ import BarGraph from '../../components/BarGraph/BarGraph'
 import LineGraph from '../../components/LineGraph/LineGraph'
 import RadarGraph from '../../components/RadarGraph/RadarGraph'
 import RadialBarGraph from '../../components/RadialBarGraph/RadialBarGraph'
+import UserKeyData from '../../components/UserKeyData/UserKeyData'
 import Loader from '../../components/Loader/Loader'
 
 import './_Profile.scss'
@@ -112,7 +113,7 @@ function Profile() {
     userPerformance
   ) {
     return (
-      <div className="profile">
+      <div className="page-content profile">
         <header className="profile__header">
           <span>Bonjour </span>
           <span className="profile__header--name">
@@ -122,22 +123,39 @@ function Profile() {
             Félicitation ! Vous avez explosé vos objectifs hier 👏
           </p>
         </header>
-        <section className="profile__section--daily-activity">
-          <BarGraph data={userDailyActivity} title="Activités quotidiennes" />
-        </section>
-        <div className="profile__chartgroup">
-          <section className="profile__section--average-sessions">
-            <LineGraph
-              data={userAverageSessions}
-              title="Durée moyenne des sessions"
-            />
-          </section>
-          <section className="profile__section--performance">
-            <RadarGraph data={userPerformance} />
-          </section>
-          <section className="profile__section--score">
-            <RadialBarGraph data={userMainData.score} title="Score" />
-          </section>
+        <div className="profile__maincontent">
+          <div className="profile__charts">
+            <section className="profile__section--daily-activity">
+              <BarGraph
+                data={userDailyActivity}
+                title="Activités quotidiennes"
+              />
+            </section>
+            <div className="profile__chartgroup">
+              <section className="profile__section--average-sessions">
+                <LineGraph
+                  data={userAverageSessions}
+                  title="Durée moyenne des sessions"
+                />
+              </section>
+              <section className="profile__section--performance">
+                <RadarGraph data={userPerformance} />
+              </section>
+              <section className="profile__section--score">
+                <RadialBarGraph data={userMainData.score} title="Score" />
+              </section>
+            </div>
+          </div>
+          <div className="profile__userkeydata">
+            {userMainData.keyData.map((element, index) => (
+              <UserKeyData
+                key={`${element.kind}-${index}`}
+                count={element.count}
+                kind={element.kind}
+                icon={element.icon}
+              />
+            ))}
+          </div>
         </div>
       </div>
     )
