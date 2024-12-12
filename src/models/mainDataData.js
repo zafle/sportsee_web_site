@@ -1,7 +1,7 @@
-import CaloriesIcon from '../assets/images/calories-icon.svg'
-import ProteinIcon from '../assets/images/protein-icon.svg'
-import CarboIcon from '../assets/images/carbo-icon.svg'
-import LipidIcon from '../assets/images/lipid-icon.svg'
+import CaloriesIcon from '../assets/images/calories-icon.png'
+import ProteinIcon from '../assets/images/protein-icon.png'
+import CarboIcon from '../assets/images/carbo-icon.png'
+import LipidIcon from '../assets/images/lipid-icon.png'
 
 /**
  * Formats User Main Data from API / Mock to be used in Profile Component
@@ -78,6 +78,5 @@ export function mainDataData(maindata) {
     keyData: formattedKeyData,
   }
 
-  console.log('maindata formatted :', formattedData)
   return formattedData
 }
