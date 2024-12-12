@@ -15,8 +15,12 @@
   }
   &__maincontent {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin-top: rem(78);
+
+    @media #{$xxl-screen} {
+      flex-direction: row;
+    }
   }
 
   &__chartgroup {

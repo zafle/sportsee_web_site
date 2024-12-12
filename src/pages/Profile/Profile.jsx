@@ -113,7 +113,7 @@ function Profile() {
     userPerformance
   ) {
     return (
-      <div className="page-content profile">
+      <div className="profile">
         <header className="profile__header">
           <span>Bonjour </span>
           <span className="profile__header--name">

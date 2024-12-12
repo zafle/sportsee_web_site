@@ -2,20 +2,14 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 main {
-  padding: rem(34) rem(36) rem(43) rem(117 + 36);
-  // padding: rem(34) rem(36) rem(43) rem(36);
-
-  @media #{$large-screen} {
-    padding: rem(68) rem(90) rem(86) rem(117 + 107);
-    // padding: rem(68) rem(90) rem(86) rem(107);
-  }
+  display: flex;
 
   .page-content {
     margin: auto;
-    max-width: rem(835);
+    padding: rem(34) rem(36) rem(43) rem(36);
 
-    @media #{$xxl-screen} {
-      max-width: rem(1124);
+    @media #{$large-screen} {
+      padding: rem(68) rem(90) rem(86) rem(107);
     }
   }
 }

@@ -15,8 +15,10 @@ function MainLayout({ children }) {
   return (
     <div className="page-container">
       <Header />
-      <Sidebar />
-      <main>{children}</main>
+      <main>
+        <Sidebar />
+        <div className="page-content">{children}</div>
+      </main>
     </div>
   )
 }

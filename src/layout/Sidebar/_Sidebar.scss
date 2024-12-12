@@ -2,22 +2,20 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 .sidebar {
-    float: left;
-    width: rem(117);
-    height: calc(100vh - rem(91));
-    min-height: 870px;
-    background: $secondary-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
-    padding-top: rem(60);
-    padding-bottom: rem(60);
+  flex-shrink: 0;
+  width: rem(117);
+  background: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: rem(60);
 
-    &__copyright {
-        color: white;
-        font-size: rem(12);
-        writing-mode: vertical-rl;
-        transform: rotate(-180deg);
-    }
+  &__copyright {
+    color: white;
+    font-size: rem(12);
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    flex-shrink: 0;
+  }
 }
