@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import useAccount from '../../hooks/useAccount'
 import useDataOrigin from '../../hooks/useDataOrigin'
+import './_AuthentificationForm.scss'
 
 /**
  * Renders the Authentification Form React Component to display in Home Component.
@@ -47,9 +48,10 @@ function AuthentificationForm() {
   return (
     <>
       <form className="authentification_form">
-        <fieldset>
+        <fieldset className="authentification_form__datasource">
           <legend>Utliser les données depuis :</legend>
           <input
+            className="authentification_form__radio"
             type="radio"
             id="mock"
             name="data-origin"
@@ -59,6 +61,7 @@ function AuthentificationForm() {
           />
           <label htmlFor="mock">Mock</label>
           <input
+            className="authentification_form__radio"
             type="radio"
             id="api"
             name="data-origin"
@@ -69,10 +72,20 @@ function AuthentificationForm() {
           <label htmlFor="api">API</label>
         </fieldset>
 
-        <button type="button" value="12" onClick={handleSubmit}>
+        <button
+          className="authentification_form__button"
+          type="button"
+          value="12"
+          onClick={handleSubmit}
+        >
           Utilisateur 1
         </button>
-        <button type="button" value="18" onClick={handleSubmit}>
+        <button
+          className="authentification_form__button"
+          type="button"
+          value="18"
+          onClick={handleSubmit}
+        >
           Utilisateur 2
         </button>
       </form>

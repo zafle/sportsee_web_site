@@ -1,0 +1,34 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+
+.authentification_form {
+  background: $background-grey;
+  border-radius: rem(5);
+  padding: rem(100);
+  text-align: center;
+
+  &__datasource {
+    padding: rem(20);
+    border-radius: rem(15);
+  }
+
+  &__radio {
+    accent-color: $primary-contrast;
+  }
+
+  &__button {
+    margin: rem(20);
+    background: $primary-contrast;
+    color: white;
+    font-size: rem(24);
+    border-radius: rem(10);
+    padding: rem(20);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    transition: all 300ms linear;
+
+    &:hover {
+      box-shadow: none;
+      transform: scale(0.98);
+    }
+  }
+}
