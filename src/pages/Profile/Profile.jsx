@@ -11,10 +11,10 @@ import {
   getUserPerformance,
 } from '../../services/dataFactory'
 
-import { dailyActivityData } from '../../models/dailyActivityData'
-import { performanceData } from '../../models/performanceData'
-import { mainDataData } from '../../models/mainDataData'
-import { averageSessionsData } from '../../models/averageSessionsData'
+import { dailyActivityData } from '../../utils/dailyActivityData'
+import { performanceData } from '../../utils/performanceData'
+import { mainDataData } from '../../utils/mainDataData'
+import { averageSessionsData } from '../../utils/averageSessionsData'
 
 import BarGraph from '../../components/BarGraph/BarGraph'
 import LineGraph from '../../components/LineGraph/LineGraph'
@@ -42,7 +42,7 @@ function Profile() {
   const [userPerformance, setUserPerformance] = useState(null)
   const [userAverageSessions, setUserAverageSessions] = useState(null)
 
-  // creat isLoading and error data to manage datas states
+  // create isLoading and error States to manage data states
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(false)
 
@@ -79,10 +79,18 @@ function Profile() {
           const formattedPerformance = performanceData(performance)
           setUserPerformance(formattedPerformance)
 
-          // if an error occured, catch it and set Error state to true
+          // if an error occured, catch it and redirect user to the corresponding type of error
         } catch (err) {
-          console.log(err.toJSON())
+          console.error(err)
           setError(true)
+
+          if (err.status === 404) {
+            navigate('/error/404')
+          } else if (err.code === 'ERR_NETWORK' || err.status === 503) {
+            navigate('/error/503')
+          } else {
+            navigate('/error')
+          }
 
           // finally set isLoading state to false
         } finally {
@@ -98,19 +106,12 @@ function Profile() {
 
   if (isLoading) return <Loader />
 
-  if (error) {
-    return (
-      <span>
-        Désolés, nous rencontrons un problème avec le chargement des données.
-      </span>
-    )
-  }
-
   if (
     userMainData &&
     userDailyActivity &&
     userAverageSessions &&
-    userPerformance
+    userPerformance &&
+    error === false
   ) {
     return (
       <div className="profile">

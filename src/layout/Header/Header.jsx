@@ -10,7 +10,7 @@ import './_header.scss'
 function Header() {
   return (
     <header className="main-header">
-      <Link className="main-header__logo">
+      <Link className="main-header__logo" to="/">
         <img src={logo} alt="logo SportSee" />
       </Link>
       <nav className="main-header__navigation">

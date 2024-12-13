@@ -1,0 +1,30 @@
+@use '../../assets/styles/abstract/variables' as *;
+@use '../../assets/styles/abstract/functions' as *;
+@use '../../assets/styles/abstract/mixins' as *;
+
+.error-page {
+  text-align: center;
+  position: relative;
+  &__image {
+    width: rem(450);
+  }
+  &__button {
+    @include main-button;
+  }
+  &__credit {
+    display: block;
+    margin-top: rem(40);
+    font-size: rem(10);
+    color: $secondary-contrast;
+  }
+  &__text {
+    color: white;
+    text-transform: uppercase;
+    font-size: rem(18);
+    position: absolute;
+    top: 145px;
+    left: 155px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+}

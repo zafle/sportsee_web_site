@@ -52,10 +52,10 @@ Go to https://github.com/OpenClassrooms-Student-Center/SportSee and follow the R
 - **src/context/**: React contexts
 - **src/hooks/**: React hooks
 - **src/layout/**: Layout React components
-- **src/models/**: Constructor Patterns
 - **src/pages/**: Main application pages
 - **src/router/**: React Dom BrowserRouter
 - **src/services/**: API calls and Mock management
+- **src/utils/**: Constructor Patterns
 
 ## 5. Data Management
 

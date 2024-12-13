@@ -11,8 +11,8 @@ const BASE_URL = 'http://localhost:3000'
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function fetchUserMainData(userId) {
-    const response = await axios.get(`${BASE_URL}/user/${userId}`)
-    return response.data.data
+  const response = await axios.get(`${BASE_URL}/user/${userId}`)
+  return response.data.data
 }
 
 /**
@@ -23,8 +23,8 @@ export async function fetchUserMainData(userId) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function fetchUserDailyActivity(userId) {
-    const response = await axios.get(`${BASE_URL}/user/${userId}/activity`)
-    return response.data.data
+  const response = await axios.get(`${BASE_URL}/user/${userId}/activity`)
+  return response.data.data
 }
 
 /**
@@ -35,10 +35,10 @@ export async function fetchUserDailyActivity(userId) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function fetchUserAverageSessions(userId) {
-    const response = await axios.get(
-        `${BASE_URL}/user/${userId}/average-sessions`
-    )
-    return response.data.data
+  const response = await axios.get(
+    `${BASE_URL}/user/${userId}/average-sessions`
+  )
+  return response.data.data
 }
 
 /**
@@ -49,6 +49,6 @@ export async function fetchUserAverageSessions(userId) {
  * @returns {Promise.reject<Error>} AxiosError
  */
 export async function fetchUserPerformance(userId) {
-    const response = await axios.get(`${BASE_URL}/user/${userId}/performance`)
-    return response.data.data
+  const response = await axios.get(`${BASE_URL}/user/${userId}/performance`)
+  return response.data.data
 }
