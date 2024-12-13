@@ -4,6 +4,7 @@ import {
   PolarRadiusAxis,
   Radar,
   RadarChart,
+  ResponsiveContainer,
 } from 'recharts'
 import colors from '../../assets/colors/colors'
 import PropTypes from 'prop-types'
@@ -22,35 +23,31 @@ import './_RadarGraph.scss'
  */
 function RadarGraph({ data }) {
   const renderRadarChart = (
-    <RadarChart
-      outerRadius={88}
-      width={258}
-      height={263}
-      startAngle={210}
-      endAngle={570}
-      data={data}
-      className="radargraph__radarchart"
-    >
-      <PolarGrid
-        stroke="white"
-        polarRadius={[10, 20, 42, 65, 88]}
-        radialLines={false}
-      />
-      <PolarAngleAxis
-        dataKey={'kind'}
-        tickLine={false}
-        axisLine={false}
-        tick={{
-          fill: '#ffffff',
-          fontSize: 12,
-          fontWeight: 400,
-          marginTop: 5,
-        }}
-        className="radargraph__radarchart--ticks"
-      />
-      <PolarRadiusAxis domain={[0, 250]} tick={false} axisLine={false} />
-      <Radar dataKey={'value'} fill={colors.primaryColor} opacity={0.7} />
-    </RadarChart>
+    <ResponsiveContainer>
+      <RadarChart
+        margin={{ top: 15, right: 15, bottom: 15, left: 15 }}
+        outerRadius="75%"
+        innerRadius="-5%"
+        startAngle={210}
+        endAngle={570}
+        data={data}
+        className="radargraph__radarchart"
+      >
+        <PolarGrid stroke="white" radialLines={false} />
+        <PolarAngleAxis
+          dataKey={'kind'}
+          tickLine={false}
+          axisLine={false}
+          tick={{
+            fill: '#ffffff',
+            fontWeight: 400,
+          }}
+          className="radargraph__radarchart--ticks"
+        />
+        <PolarRadiusAxis domain={[-50, 250]} tick={false} axisLine={false} />
+        <Radar dataKey={'value'} fill={colors.primaryColor} opacity={0.7} />
+      </RadarChart>
+    </ResponsiveContainer>
   )
 
   return <div className="radargraph">{renderRadarChart}</div>

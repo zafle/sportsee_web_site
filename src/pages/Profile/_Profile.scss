@@ -3,43 +3,44 @@
 
 .profile {
   &__header {
-    font-size: rem(48);
+    font-size: rem(36);
+
+    @media #{$large-screen} {
+      font-size: rem(48);
+    }
     &--name {
       color: $primary-color;
     }
     &--text {
-      font-size: rem(18);
+      font-size: rem(14);
       font-weight: $regular-weight;
-      margin-top: rem(30);
+      margin-top: rem(20);
+
+      @media #{$large-screen} {
+        font-size: rem(18);
+        margin-top: rem(30);
+      }
     }
   }
+
   &__maincontent {
     display: flex;
-    flex-direction: column;
-    margin-top: rem(78);
+    margin-top: rem(40);
 
-    @media #{$xxl-screen} {
-      flex-direction: row;
+    @media #{$large-screen} {
+      margin-top: rem(78);
     }
   }
 
   &__chartgroup {
     display: flex;
     justify-content: space-between;
-    width: rem(835);
     margin-top: rem(30);
   }
   &__userkeydata {
     display: flex;
-    gap: rem(30);
-    margin-top: rem(30);
-
-    @media #{$xxl-screen} {
-      flex-direction: column;
-      justify-content: space-between;
-      gap: unset;
-      margin-left: rem(30);
-      margin-top: 0;
-    }
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: rem(30);
   }
 }

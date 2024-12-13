@@ -3,6 +3,7 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -39,75 +40,75 @@ import './_BarGraph.scss'
 
 function BarGraph({ data, title }) {
   const renderBarChart = (
-    <BarChart
-      width={835}
-      height={320}
-      data={data.values}
-      barGap={8}
-      margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
-      className="bargraph__barchart"
-    >
-      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-      <XAxis
-        dataKey="XaxisTick"
-        axisLine={false}
-        tickLine={false}
-        dy={16}
-        tick={{ fill: colors.lightGrey, fontSize: 14 }}
-      />
-      <YAxis
-        yAxisId="bar1"
-        dataKey="YdataBar1"
-        orientation="right"
-        domain={['dataMin - 1', 'dataMax + 1']}
-        tickCount={4}
-        axisLine={false}
-        tickLine={false}
-        dx={24}
-        tick={{ fill: colors.lightGrey, fontSize: 14 }}
-      />
-      <YAxis
-        yAxisId="bar2"
-        domain={['dataMin - 100', 'dataMax + 10']}
-        hide={true}
-      />
-      <Bar
-        yAxisId="bar1"
-        unit={data.units.unitBar1}
-        name={data.units.nameBar1}
-        dataKey="YdataBar1"
-        fill={colors.secondaryContrast}
-        barSize={7}
-        radius={[3, 3, 0, 0]}
-      />
-      <Bar
-        yAxisId="bar2"
-        unit={data.units.unitBar2}
-        name={data.units.nameBar2}
-        dataKey="YdataBar2"
-        fill={colors.primaryContrast}
-        barSize={7}
-        radius={[3, 3, 0, 0]}
-      />
-      <Tooltip
-        offset={30}
-        content={<CustomTooltip />}
-        cursor={{ fill: colors.transparentGrey }}
-      />
-      <Legend
-        iconType="circle"
-        iconSize={8}
-        align="right"
-        verticalAlign="top"
-        formatter={(value) => (
-          <span className="bargraph__barchart--legend">{value}</span>
-        )}
-        wrapperStyle={{
-          paddingBottom: '48px',
-          marginRight: '-30px',
-        }}
-      />
-    </BarChart>
+    <ResponsiveContainer>
+      <BarChart
+        data={data.values}
+        barGap={8}
+        margin={{ top: 30, right: 30, bottom: 30, left: 30 }}
+        className="bargraph__barchart"
+      >
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis
+          dataKey="XaxisTick"
+          axisLine={false}
+          tickLine={false}
+          dy={16}
+          tick={{ fill: colors.lightGrey, fontSize: 14 }}
+        />
+        <YAxis
+          yAxisId="bar1"
+          dataKey="YdataBar1"
+          orientation="right"
+          domain={['dataMin - 1', 'dataMax + 1']}
+          tickCount={4}
+          axisLine={false}
+          tickLine={false}
+          dx={24}
+          tick={{ fill: colors.lightGrey, fontSize: 14 }}
+        />
+        <YAxis
+          yAxisId="bar2"
+          domain={['dataMin - 100', 'dataMax + 10']}
+          hide={true}
+        />
+        <Bar
+          yAxisId="bar1"
+          unit={data.units.unitBar1}
+          name={data.units.nameBar1}
+          dataKey="YdataBar1"
+          fill={colors.secondaryContrast}
+          barSize={7}
+          radius={[3, 3, 0, 0]}
+        />
+        <Bar
+          yAxisId="bar2"
+          unit={data.units.unitBar2}
+          name={data.units.nameBar2}
+          dataKey="YdataBar2"
+          fill={colors.primaryContrast}
+          barSize={7}
+          radius={[3, 3, 0, 0]}
+        />
+        <Tooltip
+          offset={30}
+          content={<CustomTooltip />}
+          cursor={{ fill: colors.transparentGrey }}
+        />
+        <Legend
+          iconType="circle"
+          iconSize={8}
+          align="right"
+          verticalAlign="top"
+          formatter={(value) => (
+            <span className="bargraph__barchart--legend">{value}</span>
+          )}
+          wrapperStyle={{
+            paddingBottom: '48px',
+            marginRight: '-30px',
+          }}
+        />
+      </BarChart>
+    </ResponsiveContainer>
   )
 
   return (

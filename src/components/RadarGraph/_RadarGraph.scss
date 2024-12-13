@@ -2,11 +2,26 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 .radargraph {
+  position: relative;
+  width: 17.9vw;
+  max-width: rem(258);
+  height: 18.2vw;
+  max-height: rem(263);
+
   &__radarchart {
     background: $secondary-contrast;
     border-radius: rem(5);
 
     &--ticks > g {
+      font-size: rem(9);
+
+      @media #{$medium-screen} {
+        font-size: 0.9vw;
+      }
+      @media #{$xxl-screen} {
+        font-size: rem(12);
+      }
+
       g:nth-child(1) {
         transform: translateY(5px);
       }

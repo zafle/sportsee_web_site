@@ -1,15 +1,26 @@
 @use '../../assets/styles/abstract/variables' as *;
 @use '../../assets/styles/abstract/functions' as *;
 
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 main {
   display: flex;
+  flex-grow: 1;
 
   .page-content {
     margin: auto;
-    padding: rem(34) rem(36) rem(43) rem(36);
+    padding-top: rem(48);
+    padding-bottom: rem(86);
+    padding-left: rem(36);
+    padding-right: rem(36);
 
     @media #{$large-screen} {
-      padding: rem(48) rem(90) rem(86) rem(107);
+      padding-left: rem(107);
+      padding-right: rem(90);
     }
   }
 }

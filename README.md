@@ -73,6 +73,6 @@ The mock file is in src/assets/data/data.js
 The base URL for API can be set in src/services/fetchUserData.js
 The API calls are sent with Axios.
 
-## 8. Contributors
+## 6. Contributors
 
 - Anne Fleutot - Open ClassRoom student (JavaScript React)

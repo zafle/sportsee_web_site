@@ -3,14 +3,17 @@
 
 .sidebar {
   flex-shrink: 0;
-  width: rem(117);
+  width: 8.125vw;
+  max-width: rem(117);
+  min-width: rem(90);
   background: $secondary-color;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: rem(60);
-  min-height: calc(100vh - rem(91));
+  justify-content: center;
+  padding-bottom: rem(240);
+  padding-top: rem(60);
+  position: relative;
 
   &__copyright {
     color: white;
@@ -18,7 +21,7 @@
     writing-mode: vertical-rl;
     transform: rotate(-180deg);
     flex-shrink: 0;
-    margin-top: auto;
-    margin-bottom: 0;
+    position: absolute;
+    bottom: rem(60);
   }
 }

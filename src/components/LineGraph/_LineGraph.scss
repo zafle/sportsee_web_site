@@ -3,23 +3,42 @@
 
 .linegraph {
   position: relative;
+  width: 17.9vw;
+  max-width: rem(258);
+  height: 18.2vw;
+  max-height: rem(263);
 
   &__linechart {
     background: $primary-color;
     border-radius: rem(5);
   }
+
   &__ticks {
     position: absolute;
-    width: rem(258);
-    bottom: 24px;
+    width: 100%;
     right: 0;
     left: 0;
     text-align: center;
-    letter-spacing: 29px;
-    text-indent: 13px;
-    font-size: rem(12);
     color: white;
     opacity: 0.6;
+    font-size: rem(9);
+    letter-spacing: 20.5px;
+    text-indent: 9.25px;
+    bottom: 17px;
+
+    @media #{$medium-screen} {
+      font-size: 0.85vw;
+      letter-spacing: 2vw;
+      text-indent: 0.9vw;
+      bottom: 1.7vw;
+    }
+
+    @media #{$xxl-screen} {
+      font-size: rem(12);
+      letter-spacing: 29px;
+      text-indent: 13px;
+      bottom: 24px;
+    }
   }
 }
 
@@ -27,5 +46,12 @@
   color: white;
   opacity: 0.6;
   width: 60%;
-  line-height: 24px;
+  line-height: 17px;
+
+  @media #{$medium-screen} {
+    line-height: 1.7vw;
+  }
+  @media #{$xxl-screen} {
+    line-height: 24px;
+  }
 }

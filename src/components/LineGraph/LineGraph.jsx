@@ -1,4 +1,11 @@
-import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import ChartTitle from '../ChartTitle/ChartTitle'
 import CustomizedActiveDot from './components/CustomizedActiveDot/CustomizedActiveDot'
 import CustomizedCursor from './components/CustomizedCursor/CustomizedCursor'
@@ -31,40 +38,40 @@ function LineGraph({ data, title }) {
   })
 
   const renderLineChart = (
-    <LineChart
-      width={258}
-      height={263}
-      data={data.values}
-      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-      className="linegraph__linechart"
-    >
-      <XAxis dataKey="Xdata" hide={true} />
-      <YAxis hide={true} domain={['dataMin - 50', 'dataMax + 50']} />
-      <Tooltip
-        cursor={<CustomizedCursor />}
-        content={<CustomizedTooltipContent unit={data.unit} />}
-        wrapperStyle={{
-          width: 40,
-          height: 25,
-          backgroundColor: 'white',
-        }}
-        itemStyle={{ fontSize: '8px' }}
-      />
-      <defs>
-        <linearGradient id="gradientLine" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="rgba(255, 255, 255, 0.4)" />
-          <stop offset="80%" stopColor="#FFFFFF" />
-        </linearGradient>
-      </defs>
-      <Line
-        type="natural"
-        dataKey="Ydata"
-        dot={false}
-        activeDot={<CustomizedActiveDot />}
-        stroke="url(#gradientLine)"
-        strokeWidth={2}
-      />
-    </LineChart>
+    <ResponsiveContainer>
+      <LineChart
+        data={data.values}
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        className="linegraph__linechart"
+      >
+        <XAxis dataKey="Xdata" hide={true} />
+        <YAxis hide={true} domain={['dataMin - 50', 'dataMax + 50']} />
+        <Tooltip
+          cursor={<CustomizedCursor />}
+          content={<CustomizedTooltipContent unit={data.unit} />}
+          wrapperStyle={{
+            width: 40,
+            height: 25,
+            backgroundColor: 'white',
+          }}
+          itemStyle={{ fontSize: '8px' }}
+        />
+        <defs>
+          <linearGradient id="gradientLine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(255, 255, 255, 0.4)" />
+            <stop offset="80%" stopColor="#FFFFFF" />
+          </linearGradient>
+        </defs>
+        <Line
+          type="natural"
+          dataKey="Ydata"
+          dot={false}
+          activeDot={<CustomizedActiveDot />}
+          stroke="url(#gradientLine)"
+          strokeWidth={2}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   )
 
   return (

@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   gap: rem(20);
-  margin-bottom: rem(164);
-  margin-top: rem(256);
+
+  img {
+    width: 4.45vw;
+    max-width: rem(64);
+    min-width: rem(45);
+  }
 }

@@ -2,10 +2,21 @@
 @use '../../assets/styles/abstract/functions' as *;
 
 .chart_title {
-    position: absolute;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: rem(21);
+  left: rem(23);
+  font-size: rem(11);
+
+  @media #{$medium-screen} {
+    top: 2.1vw;
+    left: 2.25vw;
+    font-size: 1vw;
+  }
+  @media #{$xxl-screen} {
     top: rem(30);
     left: rem(32);
     font-size: rem(15);
-    z-index: 1;
-    pointer-events: none;
+  }
 }

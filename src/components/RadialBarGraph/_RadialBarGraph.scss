@@ -3,6 +3,10 @@
 
 .radialbargraph {
   position: relative;
+  width: 17.9vw;
+  max-width: rem(258);
+  height: 18.2vw;
+  max-height: rem(263);
 
   &__radialbarchart {
     background: $background-grey;

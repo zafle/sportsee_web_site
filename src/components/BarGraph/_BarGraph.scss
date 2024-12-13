@@ -3,6 +3,11 @@
 
 .bargraph {
   position: relative;
+  width: 58vw;
+  max-width: rem(835);
+  height: 22.2vw;
+  max-height: rem(320);
+
   &__barchart {
     position: absolute;
     top: 0;
