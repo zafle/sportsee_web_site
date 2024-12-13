@@ -5,8 +5,10 @@
   position: relative;
   width: 58vw;
   max-width: rem(835);
+  min-width: rem(593);
   height: 22.2vw;
   max-height: rem(320);
+  min-height: rem(227);
 
   &__barchart {
     position: absolute;

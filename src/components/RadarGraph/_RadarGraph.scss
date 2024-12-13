@@ -5,8 +5,10 @@
   position: relative;
   width: 17.9vw;
   max-width: rem(258);
+  min-width: rem(183);
   height: 18.2vw;
   max-height: rem(263);
+  min-height: rem(186);
 
   &__radarchart {
     background: $secondary-contrast;
