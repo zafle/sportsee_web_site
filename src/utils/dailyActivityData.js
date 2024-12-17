@@ -32,10 +32,10 @@ export function dailyActivityData(sessions) {
 
   // units array to use in the BarChart
   const units = {
-    unitBar1: 'kg',
-    unitBar2: 'kCal',
-    nameBar1: 'Poids (kg)',
-    nameBar2: 'Calories brûlées (kCal)',
+    unitBar1: 'kg', /* unit for Tooltip */
+    unitBar2: 'kCal', /* unit for Tooltip */
+    nameBar1: 'Poids (kg)', /* name for Legend */
+    nameBar2: 'Calories brûlées (kCal)', /* name for Legend */
   }
 
   const formattedData = {

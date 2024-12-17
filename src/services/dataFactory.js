@@ -17,7 +17,8 @@ import {
  *
  * @param {number} userId logged user ID
  * @param {boolean} isMock indicates which data source has been chosen
- * @returns {Promise}
+ *
+ * @returns {Promise | Object} Returns a promise if API or an Object if Mock
  * @returns {Promise.resolve<Object.< id: number, userInfos: Object, todayScore: number, keyData: Object >>}
  * @returns {Promise.reject<Error>} AxiosError
  */
@@ -33,7 +34,8 @@ export async function getUserMainData(userId, isMock) {
  *
  * @param {number} userId logged user ID
  * @param {boolean} isMock indicates which data source has been chosen
- * @returns {Promise}
+ *
+ * @returns {Promise | Object} Returns a promise if API or an Object if Mock
  * @returns {Promise.resolve<Object.< userId: number, sessions: Array.<Object> >>}
  * @returns {Promise.reject<Error>} AxiosError
  */
@@ -50,7 +52,8 @@ export async function getUserDailyActivity(userId, isMock) {
  *
  * @param {number} userId logged user ID
  * @param {boolean} isMock indicates which data source has been chosen
- * @returns {Promise}
+ *
+ * @returns {Promise | Object} Returns a promise if API or an Object if Mock
  * @returns {Promise.resolve<Object.< userId: number, sessions: Array.<Object> >>}
  * @returns {Promise.reject<Error>} AxiosError
  */
@@ -67,7 +70,8 @@ export async function getUserAverageSessions(userId, isMock) {
  *
  * @param {number} userId logged user ID
  * @param {boolean} isMock indicates which data source has been chosen
- * @returns {Promise}
+ *
+ * @returns {Promise | Object} Returns a promise if API or an Object if Mock
  * @returns {Promise.resolve<Object.< userId: number, kind: Object, data: Array.<Object> >>}
  * @returns {Promise.reject<Error>} AxiosError
  */

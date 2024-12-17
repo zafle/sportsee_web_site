@@ -73,8 +73,8 @@ function BarGraph({ data, title }) {
         />
         <Bar
           yAxisId="bar1"
-          unit={data.units.unitBar1}
-          name={data.units.nameBar1}
+          unit={data.units.unitBar1} /* unit for Tooltip */
+          name={data.units.nameBar1} /* name for Legend */
           dataKey="YdataBar1"
           fill={colors.secondaryContrast}
           barSize={7}
@@ -82,8 +82,8 @@ function BarGraph({ data, title }) {
         />
         <Bar
           yAxisId="bar2"
-          unit={data.units.unitBar2}
-          name={data.units.nameBar2}
+          unit={data.units.unitBar2} /* unit for Tooltip */
+          name={data.units.nameBar2} /* name for Legend */
           dataKey="YdataBar2"
           fill={colors.primaryContrast}
           barSize={7}
